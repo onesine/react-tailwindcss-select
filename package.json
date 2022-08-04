@@ -8,7 +8,6 @@
     "license": "MIT",
     "scripts": {
         "prepublish": "NODE_ENV=dev rollup -c",
-        "dev": "NODE_ENV=dev rollup -c --watch",
         "build": "NODE_ENV=production rollup -c",
         "tailwind-dev": "tailwindcss -i ./src/index.css -o ./dist/index.css",
         "tailwind-build": "tailwindcss -i ./src/index.css -o ./dist/index.min.css --minify"
