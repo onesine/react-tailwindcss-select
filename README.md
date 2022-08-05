@@ -44,7 +44,17 @@ make sure you have installed the peer dependencies as well with below versions.
 This component also exports a tiny css file built by tailwind. All css classes used in designing and customizing the select component are all custom tailwind classes which ensures that an existing tailwind project would not need to include this css file again.
 
 ### Tailwind Project
-A tailwind project would just need to import the react component using `import Select from 'react-tailwindcss-select'`.
+A tailwind project would only have to import the react component using `import Select from 'react-tailwindcss-select'` and specify the component in the tailwind configuration to generate the styles of the classes used by react-tailwindcss-select.
+
+Use this code to add the component to the tailwind configuration
+```javascript
+// in your tailwind.config.js
+module.exports = {
+    // ...
+    content: ["./src/**/*.{js,jsx,ts,tsx}", "./node_modules/react-tailwindcss-select/dist/index.esm.js"],
+    // ...
+}
+```
 
 ### None Tailwind Project
 On a project that does not use tailwind, you need to import the component's css as well. 
