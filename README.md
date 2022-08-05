@@ -44,11 +44,11 @@ make sure you have installed the peer dependencies as well with below versions.
 This component also exports a tiny css file built by tailwind. All css classes used in designing and customizing the select component are all custom tailwind classes which ensures that an existing tailwind project would not need to include this css file again.
 
 ### Tailwind Project
-A tailwind project would just need to import the react component using `import Table from 'react-tailwindcss-select'`.
+A tailwind project would just need to import the react component using `import Select from 'react-tailwindcss-select'`.
 
 ### None Tailwind Project
 On a project that does not use tailwind, you need to import the component's css as well. 
-To do this use these two codes: `import Table from 'react-tailwind-table'` and `import 'react-tailwindcss-select/dist/index.css'`
+To do this use these two codes: `import Select from 'react-tailwindcss-select'` and `import 'react-tailwindcss-select/dist/index.css'`
 > **Warning**
 > In this case when you don't use tailwind on your project, think about isolating the component and its style so that tailwind doesn't affect the style of the elements in your project. For this you can use the [shadow dom](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM).
 
