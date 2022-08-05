@@ -34,7 +34,7 @@ Or via npm
 ```bash
 npm install react-tailwindcss-select
 ```
-make sure you have installed the peer dependencies as well with below versions
+make sure you have installed the peer dependencies as well with below versions.
 ```
 "prop-types": "^15.8.1",
 "react": "^18.2.0"
