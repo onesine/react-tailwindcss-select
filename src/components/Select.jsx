@@ -69,7 +69,7 @@ const Select = ({options = [], value = null, onChange, placeholder="Select...", 
     return (
         <div className="relative" ref={ref}>
             <div onFocus={toggle} onKeyDown={pressEnter} onClick={toggle} className={`flex items-stretch w-full h-full text-sm text-gray-500 border border-gray-300 rounded shadow-sm ring-2 ring-blue-500 transition duration-300 ${isDisabled ? 'bg-gray-200' : 'bg-white hover:border-gray-400'} ${!open ? 'ring-opacity-0' : ''}`}>
-                <div className="w-full pl-2.5 py-2 p.r-2 text-sm flex flex-wrap gap-1">
+                <div className="w-full pl-2.5 py-2 pr-2 text-sm flex flex-wrap gap-1">
                     {!isMultiple ? (
                         value === null ? placeholder : value.label
                     ) : (
@@ -105,7 +105,7 @@ const Select = ({options = [], value = null, onChange, placeholder="Select...", 
                     )}
 
                     <div className="py-1.5 h-full">
-                        <div className="w-px h-full text-white bg-gray-300 text-opacity-0 default">.</div>
+                        <div className="w-px h-full text-white bg-gray-300 text-opacity-0">.</div>
                     </div>
 
                     <div className="px-1.5 py-1">
@@ -117,7 +117,6 @@ const Select = ({options = [], value = null, onChange, placeholder="Select...", 
             {(open && !isDisabled) && (
                 <Options
                     isSearchable={isSearchable}
-                    name={name}
                     options={listOption}
                     value={value}
                     onChoseOption={choseOption}

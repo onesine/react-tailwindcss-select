@@ -3,7 +3,7 @@ import Item from "./Item.jsx";
 import SearchInput from "./SearchInput.jsx";
 import DisabledItem from "./DisabledItem.jsx";
 
-const Options = ({options, value, onChoseOption, searchInputPlaceholder = "", isSearchable, isMultiple, name = "", noOptionsMessage}) => {
+const Options = ({options, value, onChoseOption, searchInputPlaceholder = "", isSearchable, isMultiple, noOptionsMessage}) => {
     const [inputValue, setInputValue] = useState("");
 
     const filterByText = useCallback(() => {
@@ -38,7 +38,6 @@ const Options = ({options, value, onChoseOption, searchInputPlaceholder = "", is
         <div className="absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-gray-700">
             {isSearchable && (
                 <SearchInput
-                    name={name}
                     value={inputValue}
                     placeholder={searchInputPlaceholder}
                     onChange={handleSearchInputChange}
