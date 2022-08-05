@@ -17,7 +17,7 @@ A select with the above features is above all indispensable in many projects. On
 Rather than looking for a component that uses [tailwind](https://tailwindcss.com/), I preferred to make my own based on react-select which I like (and also because I generally like to reinvent the wheel 😅).
 
 <p align="center">
-<img src="https://github.com/onesine/react-tailwindcss-select/assets/img/Screen_Shot_2022-08-04_at_17.04.09.png" alt="preview react-tailwindcss-select">
+<img src="https://raw.githubusercontent.com/onesine/react-tailwindcss-select/master/assets/img/Screen_Shot_2022-08-04_at_17.04.09.png" alt="preview react-tailwindcss-select">
 </p>
 
 <!--
