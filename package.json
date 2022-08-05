@@ -7,8 +7,7 @@
     "author": "onesine",
     "license": "MIT",
     "scripts": {
-        "prepublish": "NODE_ENV=dev rollup -c",
-        "build": "NODE_ENV=production rollup -c",
+        "build": "rollup -c",
         "tailwind-build": "tailwindcss -i ./src/index.css -o ./dist/index.css --minify"
     },
     "repository": {
@@ -43,7 +42,6 @@
         "postcss": "^8.4.14",
         "prop-types": "^15.8.1",
         "rollup": "^2.77.2",
-        "rollup-plugin-sourcemaps": "^0.6.3",
         "rollup-plugin-styles": "^4.0.0",
         "rollup-plugin-terser": "^7.0.2",
         "tailwindcss": "^3.1.7"
