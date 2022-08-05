@@ -7,8 +7,11 @@
     "author": "onesine",
     "license": "MIT",
     "scripts": {
-        "build": "rollup -c",
-        "tailwind-build": "tailwindcss -i ./src/index.css -o ./dist/index.css --minify"
+        "dev": "NODE_ENV=dev rollup -c",
+        "watch": "NODE_ENV=dev rollup -c --watch",
+        "build": "NODE_ENV=production rollup -c",
+        "tailwind-build": "tailwindcss -i ./src/index.css -o ./dist/index.css --minify",
+        "test": "echo \"No test specified\""
     },
     "repository": {
         "type": "git",

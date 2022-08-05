@@ -5,15 +5,16 @@ import styles from "rollup-plugin-styles";
 import { terser } from "rollup-plugin-terser";
 import autoprefixer from "autoprefixer";
 
+const dev = process.env.NODE_ENV === "dev"
 const MODES = ['cjs', 'esm'];
 
 export default MODES.map(item => {
     const config = {
         input: `src/index.js`,
         output: {
-            file: `dist/index.${item}.js`,
+            file: `dist/index.${item}${dev ? '' : '.min'}.js`,
             format: item,
-            sourcemap: true,
+            sourcemap: item === "esm",
             exports: "auto",
         },
         external: ["prop-types", "react"],
@@ -31,8 +32,12 @@ export default MODES.map(item => {
                 exclude: ['node_modules/**']
             }),
             commonjs(),
-            terser()
         ]
     };
+    if (!dev) {
+        config.output.sourcemap = false;
+        config.plugins = [...config.plugins, terser()]
+    }
+
     return config;
 });
