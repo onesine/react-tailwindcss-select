@@ -3,7 +3,7 @@ src
 node_modules
 .vscode
 .idea
-.assets
+assets
 ## Files
 babel.config.json
 rollup.config.js
@@ -13,3 +13,5 @@ rollup.config.js
 npm-debug.log
 package-lock.json
 yarn.lock
+tailwind.config.js
+postcss.config.js

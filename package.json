@@ -9,8 +9,7 @@
     "scripts": {
         "prepublish": "NODE_ENV=dev rollup -c",
         "build": "NODE_ENV=production rollup -c",
-        "tailwind-dev": "tailwindcss -i ./src/index.css -o ./dist/index.css",
-        "tailwind-build": "tailwindcss -i ./src/index.css -o ./dist/index.min.css --minify"
+        "tailwind-build": "tailwindcss -i ./src/index.css -o ./dist/index.css --minify"
     },
     "repository": {
         "type": "git",
