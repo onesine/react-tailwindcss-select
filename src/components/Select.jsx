@@ -67,7 +67,7 @@ const Select = ({options = [], value = null, onChange, placeholder="Select...", 
     };
 
     return (
-        <div className="relative" ref={ref}>
+        <div className="relative w-full" ref={ref}>
             <div onFocus={toggle} onKeyDown={pressEnter} onClick={toggle} className={`flex items-stretch w-full h-full text-sm text-gray-500 border border-gray-300 rounded shadow-sm ring-2 ring-blue-500 transition duration-300 ${isDisabled ? 'bg-gray-200' : 'bg-white hover:border-gray-400'} ${!open ? 'ring-opacity-0' : ''}`}>
                 <div className="w-full pl-2.5 py-2 pr-2 text-sm flex flex-wrap gap-1">
                     {!isMultiple ? (
