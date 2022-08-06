@@ -20,10 +20,9 @@ Rather than looking for a component that uses [tailwind](https://tailwindcss.com
 <img src="https://raw.githubusercontent.com/onesine/react-tailwindcss-select/master/assets/img/Screen_Shot_2022-08-04_at_17.04.09.png" alt="preview react-tailwindcss-select">
 </p>
 
-<!--
+
 ## Online Demo
-You can find the online demo at <a href="www.react-tailwindcss-select.com">here</a>
--->
+You can find the online demo at [here](https://demo-react-tailwindcss-select.herokuapp.com/)
 
 ## Install
 You can use yarn
