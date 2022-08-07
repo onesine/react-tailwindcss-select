@@ -3,10 +3,10 @@
 [![](https://img.shields.io/badge/developed%20with-Yarn%202-blue)](https://github.com/yarnpkg/berry)
 
 # React tailwindcss select
-React-tailwindcss-select is a simple component ready to be inserted in your project. This component inspired by [React-select](https://react-select.com) is a select input made with [Tailwindcss](https://tailwindcss.com/) and [React](https://reactjs.com).
+React-tailwindcss-select is a simple component ready to be inserted into your project. This component inspired by [React-select](https://react-select.com) is a select input made with [Tailwindcss](https://tailwindcss.com/) and [React](https://reactjs.com).
 
 ## Features
-- Select field of a single item
+- Select the field of a single item
 - Selection field for multiple items
 - Optional button to clear the field
 - Optional search for an item
@@ -33,14 +33,14 @@ Or via npm
 ```bash
 npm install react-tailwindcss-select
 ```
-make sure you have installed the peer dependencies as well with below versions.
+make sure you have installed the peer dependencies as well with the below versions.
 ```
 "prop-types": "^15.8.1",
 "react": "^18.2.0"
 ```
 
 ## Usage
-This component also exports a tiny css file built by tailwind. All css classes used in designing and customizing the select component are all custom tailwind classes which ensures that an existing tailwind project would not need to include this css file again.
+This component also exports a tiny CSS file built by tailwind. All CSS classes used in designing and customizing the select component are all custom tailwind classes which ensures that an existing tailwind project would not need to include this CSS file again.
 
 ### Tailwind Project
 A tailwind project would only have to import the react component using `import Select from 'react-tailwindcss-select'` and specify the component in the tailwind configuration to generate the styles of the classes used by react-tailwindcss-select.
@@ -56,10 +56,10 @@ module.exports = {
 ```
 
 ### None Tailwind Project
-On a project that does not use tailwind, you need to import the component's css as well. 
+On a project that does not use tailwind, you need to import the component's CSS as well. 
 To do this use these two codes: `import Select from 'react-tailwindcss-select'` and `import 'react-tailwindcss-select/dist/index.css'`
 > **Warning**
-> In this case when you don't use tailwind on your project, think about isolating the component and its style so that tailwind doesn't affect the style of the elements in your project. For this you can use the [shadow dom](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM).
+> In this case when you don't use tailwind on your project, think about isolating the component and its style so that tailwind doesn't affect the style of the elements in your project. For this, you can use the [shadow dom](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM).
 
 Then use react-tailwindcss-select in your app:
 #### With React Component
@@ -112,7 +112,7 @@ const options = [
 ];
 
 const App = () => {
-    const [aniam, setAnimal] = useState(null);
+    const [animal, setAnimal] = useState(null);
     
     const handleChange = (value) => {
         console.log("value:", value);
@@ -151,7 +151,7 @@ This table shows all the options available in react-tailwindcss-select.
 
 
 ### onChange
-This callback, if present, is triggered when the select field value is modified. This callback takes as parameter the current value(s) selected. These values respect the same structure as the elements of the options.
+This callback, if present, is triggered when the select field value is modified. This callback takes as a parameter the current value(s) selected. These values respect the same structure as the elements of the options.
 ```js
 (currentValue) => {
     console.log("currentValue:", currentValue);
@@ -159,7 +159,7 @@ This callback, if present, is triggered when the select field value is modified.
 ```
 
 ### options
-All options available in the select field. Each option element must have a `value` property that serves as an identifier for the element, a `label` property that is the text that is displayed in the option list and an optional `disabled` property to specify whether the element is active.
+All options are available in the select field. Each option element must have a `value` property that serves as an identifier for the element, a `label` property that is the text that is displayed in the options list, and an optional `disabled` property to specify whether the element is active.
 ```js
 // default element
 const options =  [ {value: "fox", label: "🦊 Fox"} ];
@@ -168,7 +168,7 @@ const options =  [ {value: "fox", label: "🦊 Fox", disabled: true} ];
 ```
 
 ### value
-Current value of select field. These objects must follow the same structure as an `options` element. Thus, the following would work:
+The current value of the select field. These objects must follow the same structure as an `options` element. Thus, the following would work:
 ```js
 // default element Simple Select
 const value =  {value: "fox", label: "🦊 Fox"};
