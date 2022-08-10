@@ -37,7 +37,9 @@ const Select = ({options = [], value = null, onChange, placeholder="Select...", 
 
     const choseOption = useCallback((option) => {
         function update () {
-            closeDropDown();
+            if (!isMultiple) {
+                closeDropDown();
+            }
             onChange(!isMultiple ? option : (value === null ? [option] : [...value, option]));
         }
         if (value !== null) {
