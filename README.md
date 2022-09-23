@@ -22,7 +22,7 @@ Rather than looking for a component that uses [tailwind](https://tailwindcss.com
 
 
 ## Online Demo
-You can find the online demo at [here](https://demo-react-tailwindcss-select.herokuapp.com/)
+You can find the online demo at [here](https://demo-react-tailwindcss-select.vercel.app/)
 
 ## Install
 You can use yarn

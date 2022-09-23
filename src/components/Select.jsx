@@ -55,9 +55,10 @@ const Select = ({options = [], value = null, onChange, placeholder="Select...", 
         onChange(null);
     };
 
-    const pressEnter = e => {
-        if (e.code === "Enter")
+    const onPressEnterOrSpace = e => {
+        if (e.code === "Enter" || e.code === "Space") {
             setOpen(!open);
+        }
     };
 
     const removeOptionOnValue = (e, option) => {
@@ -69,18 +70,18 @@ const Select = ({options = [], value = null, onChange, placeholder="Select...", 
 
     return (
         <div className="relative w-full" ref={ref}>
-            <div onFocus={toggle} onKeyDown={pressEnter} onClick={toggle} className={`flex items-stretch w-full h-full text-sm text-gray-500 border border-gray-300 rounded shadow-sm ring-2 ring-blue-500 transition duration-300 ${isDisabled ? 'bg-gray-200' : 'bg-white hover:border-gray-400'} ${!open ? 'ring-opacity-0' : ''}`}>
+            <div tabIndex="0" aria-expanded={open} onKeyDown={onPressEnterOrSpace} onClick={toggle} className={`flex items-stretch w-full h-full text-sm text-gray-500 border border-gray-300 rounded shadow-sm ring-2 ring-blue-500 transition duration-300 focus:outline-none focus:ring-blue-500 ${isDisabled ? 'bg-gray-200' : 'bg-white hover:border-gray-400'} ${!open ? 'ring-opacity-0' : ''}`}>
                 <div className="w-full pl-2.5 py-2 pr-2 text-sm flex flex-wrap gap-1">
                     {!isMultiple ? (
-                        value === null ? placeholder : value.label
+                        <p className="truncate">{(value === null || Object.keys(value).length === 0) ? placeholder : value.label}</p>
                     ) : (
                         <>
-                            {value === null ? (
+                            {(value === null || Object.keys(value).length === 0) ? (
                                 placeholder
                             ) : (
                                 value.map((item, index) => (
                                     <div className="bg-gray-200 rounded-sm flex space-x-1" key={index}>
-                                        <div className="pl-1 text-gray-600">{item.label}</div>
+                                        <p className="pl-1 text-gray-600 truncate">{item.label}</p>
                                         {!isDisabled && (
                                             <div onClick={e => removeOptionOnValue(e, item)} className={`flex items-center px-1 cursor-pointer rounded-r-sm hover:bg-red-200 hover:text-red-600`}>
                                                 <svg className="w-3 h-3 mt-0.5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
@@ -92,6 +93,7 @@ const Select = ({options = [], value = null, onChange, placeholder="Select...", 
                         </>
                     )}
                 </div>
+
                 <div className="flex items-center">
                     {loading && (
                         <div className="mr-2">
