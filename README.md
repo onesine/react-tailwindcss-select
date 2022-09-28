@@ -11,9 +11,9 @@ React-tailwindcss-select is a simple component ready to be inserted into your pr
 - [x] Optional button to clear the field
 - [x] Optional search for an item
 - [x] Optional deactivation of an option
+- [X] TypeScript support
 - [ ] Group items
 - [ ] Customization of the select field style
-- [ ] TypeScript support
 - [ ] Fixed Options (multiple items select)
 ## Why
 A select with the above features is above all indispensable in many projects. On a project using tailwindcss, when I install [react-select](https://react-select.com) or other such packages, the style of the latter is affected by that of [tailwind](https://tailwindcss.com/).
@@ -39,7 +39,6 @@ npm install react-tailwindcss-select
 ```
 make sure you have installed the peer dependencies as well with the below versions.
 ```
-"prop-types": "^15.8.1",
 "react": "^18.2.0"
 ```
 
