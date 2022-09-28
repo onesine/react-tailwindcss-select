@@ -13,7 +13,7 @@ const SearchInput: React.FC<Props> = ({placeholder = "", value = "", onChange, n
         <div className="relative py-1 px-2.5">
             <SearchIcon className="absolute w-5 h-5 mt-2.5 pb-0.5 ml-2 text-gray-500"/>
             <input
-                className="w-full py-2 pl-8 text-sm text-gray-500 bg-gray-100 border border-gray-200 rounded focus:ring-0 focus:border-gray-200"
+                className="w-full py-2 pl-8 text-sm text-gray-500 bg-gray-100 border border-gray-200 rounded focus:border-gray-200 focus:ring-0 focus:outline-none"
                 type="text"
                 placeholder={placeholder}
                 value={value}

@@ -17,7 +17,7 @@ export default MODES.map(item => {
             name: "ReactTailwindcssSelect",
             file: `dist/index.${item}${dev ? '' : '.min'}.js`,
             format: item,
-            sourcemap: item === "esm",
+            sourcemap: true,
             exports: "auto",
             globals: {
                 'react': 'React'
