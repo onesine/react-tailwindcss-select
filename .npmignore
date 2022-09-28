@@ -6,6 +6,7 @@ node_modules
 assets
 ## Files
 babel.config.json
+tsconfig.json
 rollup.config.js
 .git
 .gitignore
