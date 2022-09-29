@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useRef, useState} from "react";
 import Spinner from "./Spinner";
 import {ChevronIcon, CloseIcon} from "./Icons";
-import useOnClickOutside from "../hooks/use-onclick-outside.js";
+import useOnClickOutside from "../hooks/use-onclick-outside";
 import SearchInput from "./SearchInput";
 import Options from "./Options";
 import {Option} from "./type";
