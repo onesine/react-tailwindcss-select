@@ -11,7 +11,7 @@ const GroupItem: React.FC<GroupItemProps> = ({item}) => {
         <>
             {item.options.length > 0 && (
                 <>
-                    <div className={`pr-2 py-2 cursor-default select-none truncate text-gray-400 font-bold text-gray-700`}>
+                    <div className={`pr-2 py-2 cursor-default select-none truncate font-bold text-gray-700`}>
                         {item.label}
                     </div>
 
