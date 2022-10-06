@@ -4,11 +4,11 @@ import {ChevronIcon, CloseIcon} from "./Icons";
 import useOnClickOutside from "../hooks/use-onclick-outside";
 import SearchInput from "./SearchInput";
 import Options from "./Options";
-import {Option} from "./type";
+import {Option, Options as ListOption} from "./type";
 import SelectProvider from "./SelectProvider";
 
-interface Props {
-    options: Option[],
+interface SelectProps {
+    options: ListOption,
     value: Option | Option[] | null,
     onChange: (value?: Option | Option[] | null) => void,
     placeholder?: string,
@@ -22,20 +22,30 @@ interface Props {
     noOptionsMessage?: string
 }
 
-
-const Select: React.FC<Props> = ({options = [], value = null, onChange, placeholder="Select...", searchInputPlaceholder = "Search...", isMultiple = false, isClearable = false, isSearchable = false, isDisabled = false, loading = false, menuIsOpen = false, noOptionsMessage = "No options found"}) => {
+const Select: React.FC<SelectProps> = ({options = [], value = null, onChange, placeholder="Select...", searchInputPlaceholder = "Search...", isMultiple = false, isClearable = false, isSearchable = false, isDisabled = false, loading = false, menuIsOpen = false, noOptionsMessage = "No options found"}) => {
     const [open, setOpen] = useState<boolean>(menuIsOpen);
-    const [list, setList] = useState<Option[]>(options);
+    const [list, setList] = useState<ListOption>(options);
     const [inputValue, setInputValue] = useState<string>("");
     const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        setList(options.map(item => {
+        const formatItem = (item: Option) => {
             if ('disabled' in item)
                 return item;
             return {
                 ...item,
                 disabled: false
+            }
+        }
+
+        setList(options.map(item => {
+            if ("options" in item) {
+                return {
+                    label: item.label,
+                    options: item.options.map(formatItem)
+                }
+            } else {
+                return formatItem(item);
             }
         }));
     }, [options]);

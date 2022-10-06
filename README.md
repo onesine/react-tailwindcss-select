@@ -2,20 +2,20 @@
 [![](https://img.shields.io/npm/l/react-tailwindcss-select.svg)]() 
 [![](https://img.shields.io/badge/developed%20with-Yarn%202-blue)](https://github.com/yarnpkg/berry)
 
-# React tailwindcss select
+# 📦 React tailwindcss select
 React-tailwindcss-select is a simple component ready to be inserted into your project. This component inspired by [React-select](https://react-select.com) is a select input made with [Tailwindcss](https://tailwindcss.com/) and [React](https://reactjs.com).
 
-## Features
-- [x] Select field for a single item
-- [x] Selection field for multiple items
-- [x] Optional button to clear the field
-- [x] Optional search for an item
-- [x] Optional deactivation of an option
-- [X] TypeScript support
-- [ ] Group items
-- [ ] Customization of the select field style
-- [ ] Fixed Options (multiple items select)
-## Why
+##  Features
+- ✅ Select field for a single item
+- ✅ Selection field for multiple items
+- ✅ Optional button to clear the field
+- ✅ Optional search for an item
+- ✅ Optional deactivation of an option
+- ✅ TypeScript support
+- ✅ Group options
+- ⬜ Customization of the select field style
+- ⬜ Fixed Options (multiple items select)
+## Why ❔
 A select with the above features is above all indispensable in many projects. On a project using tailwindcss, when I install [react-select](https://react-select.com) or other such packages, the style of the latter is affected by that of [tailwind](https://tailwindcss.com/).
 
 Rather than looking for a component that uses [tailwind](https://tailwindcss.com/), I preferred to make my own based on react-select which I like (and also because I generally like to reinvent the wheel 😅).
@@ -62,6 +62,7 @@ module.exports = {
 On a project that does not use tailwind, you need to import the component's CSS as well. 
 To do this use these two codes: `import Select from 'react-tailwindcss-select'` and `import 'react-tailwindcss-select/dist/index.css'`
 > **Warning**
+> 
 > In this case when you don't use tailwind on your project, think about isolating the component and its style so that tailwind doesn't affect the style of the elements in your project. For this, you can use the [shadow dom](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM).
 
 Then use react-tailwindcss-select in your app:
@@ -147,7 +148,7 @@ This table shows all the options available in react-tailwindcss-select.
 | `menuIsOpen`             | `Boolean`  | `false`            | Indicates if you want the options menu to be displayed by default.               |
 | `noOptionsMessage`       | `String`   | `No results found` | Default message when there is no option in the select field.                     |
 | [`onChange`](#onChange)  | `Function` |                    | This callback, if present, is triggered when the select field value is modified. |
-| [`options`](#options)    | `Array`    | `[]`               | All options available in the select field.                                       |
+| [`options`](#options)    | `Array`    | `[]`               | All options or options groups available in the selection field.                  |
 | `placeholder`            | `String`   | `Select...`        | The placeholder shown for the select field.                                      |
 | `searchInputPlaceholder` | `String`   | `Search...`        | The placeholder shown for the search input field.                                |
 | [`value`](#value)        | `Object`   | `null`             | Current value of select field.                                                   |
@@ -169,6 +170,33 @@ const options =  [ {value: "fox", label: "🦊 Fox"} ];
 // default element with `disabled`
 const options =  [ {value: "fox", label: "🦊 Fox", disabled: true} ];
 ```
+
+#### Group item
+If you want to group options you can use the following code.
+```js
+const options = [
+    {
+        label: "Mammal",
+        options: [
+            {value: "Dolphin", labe: "🐬 Dolphin"},
+            {value: "Giraffe", labe: "🦒 Giraffe"},
+        ],
+    },
+    {
+        label: "Carnivore",
+        options: [
+            {value: "Tiger", labe: "🐅 Tiger"},
+            {value: "Lion", labe: "🦁 Lion"},
+        ]
+    },
+    // 👉 You can put the grouped and ungrouped options together
+    {value: "Zombie", labe: "🧟 Zombie"},
+]
+```
+
+> **Info**
+> 
+> 👉 You can put the grouped and ungrouped options together.
 
 ### value
 The current value of the select field. These objects must follow the same structure as an `options` element. Thus, the following would work:

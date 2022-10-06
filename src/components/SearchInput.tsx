@@ -1,14 +1,14 @@
 import React from 'react'
 import {SearchIcon} from "./Icons";
 
-interface Props {
+interface SearchInputProps {
     placeholder?: string,
     value: string,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
     name?: string
 }
 
-const SearchInput: React.FC<Props> = ({placeholder = "", value = "", onChange, name = ""}) => {
+const SearchInput: React.FC<SearchInputProps> = ({placeholder = "", value = "", onChange, name = ""}) => {
     return (
         <div className="relative py-1 px-2.5">
             <SearchIcon className="absolute w-5 h-5 mt-2.5 pb-0.5 ml-2 text-gray-500"/>
