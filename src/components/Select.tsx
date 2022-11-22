@@ -107,8 +107,10 @@ const Select: React.FC<SelectProps> = ({options = [], value = null, onChange, pl
     const getSelectClass = useCallback(() => {
         // @ts-ignore
         const ringColor = COLORS.includes(primaryColor) ? THEME_DATA.ring[primaryColor] : THEME_DATA.ring[DEFAULT_THEME];
+        // @ts-ignore
+        const borderFocus = COLORS.includes(primaryColor) ? THEME_DATA.borderFocus[primaryColor] : THEME_DATA.borderFocus[DEFAULT_THEME];
         const baseClass = "flex text-sm text-gray-500 border border-gray-300 rounded shadow-sm transition-all duration-300 focus:outline-none";
-        return `${baseClass}${isDisabled ? ' bg-gray-200' : `  bg-white hover:border-gray-400 focus:ring ${ringColor}`}`;
+        return `${baseClass}${isDisabled ? ' bg-gray-200' : `  bg-white hover:border-gray-400 ${borderFocus} focus:ring ${ringColor}`}`;
     }, [isDisabled, primaryColor]);
 
     return (
