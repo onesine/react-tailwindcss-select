@@ -1,10 +1,10 @@
-<h1 align="center">
+<h1 align="center" style="border-bottom: 0 white">
   📦 React tailwindcss select
 </h1>
 
-<h4 align="center">
+<p align="center">
     React-tailwindcss-select is a simple component ready to be inserted into your project <br> This component inspired by <a href="https://react-select.com">React-select</a> is a select input made with <a href="https://tailwindcss.com/">Tailwindcss</a> and <a href="https://reactjs.com">React</a>.
-</h4>
+</p>
 
 <p align="center">
   <a href="https://github.com/onesine/react-tailwindcss-select/blob/master/LICENSE">
