@@ -5,10 +5,10 @@
         "module": "esnext",
         "jsx": "react",
         "moduleResolution": "node",
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
         "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noImplicitAny": true,
-        "strictNullChecks": true,
+        "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
         "baseUrl": "src/",
         "declaration": true,
@@ -16,6 +16,7 @@
         "inlineSources": true,
         "sourceMap": true,
         "rootDir": "src"
+
     },
     "include": ["src/**/*"],
     "exclude": ["node_modules"]

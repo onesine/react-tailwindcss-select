@@ -6,6 +6,7 @@ import SearchInput from "./SearchInput";
 import Options from "./Options";
 import {Option, Options as ListOption} from "./type";
 import SelectProvider from "./SelectProvider";
+import {COLORS, DEFAULT_THEME, THEME_DATA} from "../constants";
 
 interface SelectProps {
     options: ListOption,
@@ -19,10 +20,11 @@ interface SelectProps {
     loading?: boolean,
     menuIsOpen?: boolean,
     searchInputPlaceholder?: string,
-    noOptionsMessage?: string
+    noOptionsMessage?: string,
+    primaryColor: string
 }
 
-const Select: React.FC<SelectProps> = ({options = [], value = null, onChange, placeholder="Select...", searchInputPlaceholder = "Search...", isMultiple = false, isClearable = false, isSearchable = false, isDisabled = false, loading = false, menuIsOpen = false, noOptionsMessage = "No options found"}) => {
+const Select: React.FC<SelectProps> = ({options = [], value = null, onChange, placeholder="Select...", searchInputPlaceholder = "Search...", isMultiple = false, isClearable = false, isSearchable = false, isDisabled = false, loading = false, menuIsOpen = false, noOptionsMessage = "No options found", primaryColor = DEFAULT_THEME}) => {
     const [open, setOpen] = useState<boolean>(menuIsOpen);
     const [list, setList] = useState<ListOption>(options);
     const [inputValue, setInputValue] = useState<string>("");
@@ -102,13 +104,26 @@ const Select: React.FC<SelectProps> = ({options = [], value = null, onChange, pl
         }
     }, [isMultiple, onChange, value]);
 
+    const getSelectClass = useCallback(() => {
+        // @ts-ignore
+        const ringColor = COLORS.includes(primaryColor) ? THEME_DATA.ring[primaryColor] : THEME_DATA.ring[DEFAULT_THEME];
+        const baseClass = "flex text-sm text-gray-500 border border-gray-300 rounded shadow-sm transition-all duration-300 focus:outline-none";
+        return `${baseClass}${isDisabled ? ' bg-gray-200' : `  bg-white hover:border-gray-400 focus:ring ${ringColor}`}`;
+    }, [isDisabled, primaryColor]);
+
     return (
         <SelectProvider
             value={value}
             handleValueChange={handleValueChange}
         >
             <div className="relative w-full" ref={ref}>
-                <div tabIndex={0} aria-expanded={open} onKeyDown={onPressEnterOrSpace} onClick={toggle} className={`flex text-sm text-gray-500 border border-gray-300 rounded shadow-sm transition duration-300 focus:outline-none${isDisabled ? ' bg-gray-200' : ' bg-white hover:border-gray-400 focus:ring-2 focus:ring-blue-500'}`}>
+                <div
+                    tabIndex={0}
+                    aria-expanded={open}
+                    onKeyDown={onPressEnterOrSpace}
+                    onClick={toggle}
+                    className={getSelectClass()}
+                >
                     <div className="grow pl-2.5 py-2 pr-2 flex flex-wrap gap-1">
                         {!isMultiple ? (
                             <p className="truncate cursor-default select-none">{(value && !Array.isArray(value)) ? value.label : placeholder}</p>
@@ -135,7 +150,7 @@ const Select: React.FC<SelectProps> = ({options = [], value = null, onChange, pl
                     <div className="flex flex-none items-center py-1.5">
                         {loading && (
                             <div className="px-1.5">
-                                <Spinner/>
+                                <Spinner primaryColor={primaryColor}/>
                             </div>
                         )}
 
@@ -171,6 +186,7 @@ const Select: React.FC<SelectProps> = ({options = [], value = null, onChange, pl
                             text={inputValue}
                             isMultiple={isMultiple}
                             value={value}
+                            primaryColor={primaryColor || DEFAULT_THEME}
                         />
                     </div>
                 )}

@@ -3,6 +3,7 @@ import Item from "./Item";
 import DisabledItem from "./DisabledItem";
 import {Option, Options as ListOption} from "./type";
 import GroupItem from "./GroupItem";
+import {DEFAULT_THEME} from "../constants";
 
 interface OptionsProps {
     list: ListOption,
@@ -10,9 +11,10 @@ interface OptionsProps {
     text: string,
     isMultiple: boolean,
     value: Option | Option[] | null,
+    primaryColor: string
 }
 
-const Options: React.FC<OptionsProps> = ({list, noOptionsMessage, text, isMultiple, value}) => {
+const Options: React.FC<OptionsProps> = ({list, noOptionsMessage, text, isMultiple, value, primaryColor = DEFAULT_THEME}) => {
     const filterByText = useCallback(() => {
         const filterItem = (item: Option) => {
             return item.label.toLowerCase().indexOf(text.toLowerCase()) > -1;
@@ -84,6 +86,7 @@ const Options: React.FC<OptionsProps> = ({list, noOptionsMessage, text, isMultip
                             <div className="px-2.5">
                                 <GroupItem
                                     item={item}
+                                    primaryColor={primaryColor || DEFAULT_THEME}
                                 />
                             </div>
 
@@ -94,6 +97,7 @@ const Options: React.FC<OptionsProps> = ({list, noOptionsMessage, text, isMultip
                     ) : (
                         <div className="px-2.5">
                             <Item
+                                primaryColor={primaryColor || DEFAULT_THEME}
                                 item={item}
                             />
                         </div>

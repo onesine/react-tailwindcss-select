@@ -3,10 +3,11 @@ import {GroupOption} from "./type";
 import Item from "./Item";
 
 interface GroupItemProps {
-    item: GroupOption
+    item: GroupOption,
+    primaryColor: string
 }
 
-const GroupItem: React.FC<GroupItemProps> = ({item}) => {
+const GroupItem: React.FC<GroupItemProps> = ({item, primaryColor}) => {
     return (
         <>
             {item.options.length > 0 && (
@@ -17,6 +18,7 @@ const GroupItem: React.FC<GroupItemProps> = ({item}) => {
 
                     {item.options.map((item, index) => (
                         <Item
+                            primaryColor={primaryColor}
                             key={index}
                             item={item}
                         />
