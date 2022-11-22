@@ -201,6 +201,7 @@ This table shows all the options available in react-tailwindcss-select.
 | [`onChange`](#onChange)  | `Function` |                    | This callback, if present, is triggered when the select field value is modified. |
 | [`options`](#options)    | `Array`    | `[]`               | All options or options groups available in the selection field.                  |
 | `placeholder`            | `String`   | `Select...`        | The placeholder shown for the select field.                                      |
+| `primaryColor`           | `String`   | `blue`             | Default theme of the field.                                                      |
 | `searchInputPlaceholder` | `String`   | `Search...`        | The placeholder shown for the search input field.                                |
 | [`value`](#value)        | `Object`   | `null`             | Current value of select field.                                                   |
 
