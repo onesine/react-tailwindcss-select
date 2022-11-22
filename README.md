@@ -1,9 +1,22 @@
-[![NPM](https://img.shields.io/npm/v/react-tailwindcss-select.svg)](https://www.npmjs.com/package/react-tailwindcss-select)
-[![](https://img.shields.io/npm/l/react-tailwindcss-select.svg)]() 
-[![](https://img.shields.io/badge/developed%20with-Yarn%202-blue)](https://github.com/yarnpkg/berry)
+<h1 align="center">
+  📦 React tailwindcss select
+</h1>
 
-# 📦 React tailwindcss select
-React-tailwindcss-select is a simple component ready to be inserted into your project. This component inspired by [React-select](https://react-select.com) is a select input made with [Tailwindcss](https://tailwindcss.com/) and [React](https://reactjs.com).
+<h4 align="center">
+    React-tailwindcss-select is a simple component ready to be inserted into your project <br> This component inspired by <a href="https://react-select.com">React-select</a> is a select input made with <a href="https://tailwindcss.com/">Tailwindcss</a> and <a href="https://reactjs.com">React</a>.
+</h4>
+
+<p align="center">
+  <a href="https://github.com/onesine/react-tailwindcss-select/blob/master/LICENSE">
+    <img src="https://img.shields.io/npm/l/react-tailwindcss-select.svg" alt="MIT License">
+  </a>
+  <a href="https://www.npmjs.com/package/react-tailwindcss-select">
+    <img src="https://img.shields.io/npm/v/react-tailwindcss-select.svg">
+  </a>
+  <a href="https://github.com/yarnpkg/berry">
+    <img src="https://img.shields.io/badge/developed%20with-Yarn%202-blue">
+  </a>
+</p>
 
 ##  Features
 - ✅ Select field for a single item
@@ -125,6 +138,44 @@ const App = () => {
     
     return (
         <Select
+            value={animal}
+            onChange={handleChange}
+            options={options}
+        />
+    );
+};
+
+export default App;
+```
+
+## Theming options
+**Supported themes**
+![Theme supported](https://raw.githubusercontent.com/onesine/react-tailwindcss-datepicker/master/assets/img/Screen_Shot_2022-08-04_at_17.04.09_theme.png?raw=true)
+
+To change the default theme, simply add the `primaryColor` props to your select field with the theme value. By default, the `primaryColor` is set to `blue`
+
+### Indigo example
+```javascript
+import {useState} from 'react';
+import Select from 'react-tailwindcss-select';
+
+const options = [
+    {value: "fox", label: "🦊 Fox"},
+    {value: "Butterfly", label: "🦋 Butterfly"},
+    {value: "Honeybee", label: "🐝 Honeybee"},
+];
+
+const App = () => {
+    const [animal, setAnimal] = useState(null);
+    
+    const handleChange = (value) => {
+        console.log("value:", value);
+        setAnimal(value);
+    };
+    
+    return (
+        <Select
+            primaryColor={"indigo"}
             value={animal}
             onChange={handleChange}
             options={options}
