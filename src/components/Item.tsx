@@ -34,9 +34,9 @@ const Item: React.FC<ItemProps> = ({item, primaryColor}) => {
     return (
         <>
             {formatOptionLabel ? (
-                <>
+                <div onClick={() => handleValueChange({...item, isSelected})}>
                     {formatOptionLabel(item)}
-                </>
+                </div>
             ) : (
                 <>
                     {item.disabled ? (

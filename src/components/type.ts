@@ -1,7 +1,8 @@
 export interface Option {
     value: string,
     label: string,
-    disabled?: boolean
+    disabled?: boolean,
+    isSelected?: boolean
 }
 
 export interface GroupOption {
