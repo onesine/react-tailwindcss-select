@@ -1,6 +1,7 @@
 import React from "react";
 import {GroupOption} from "./type";
 import Item from "./Item";
+import {useSelectContext} from "./SelectProvider";
 
 interface GroupItemProps {
     item: GroupOption,
@@ -8,13 +9,21 @@ interface GroupItemProps {
 }
 
 const GroupItem: React.FC<GroupItemProps> = ({item, primaryColor}) => {
+    const {formatGroupLabel} = useSelectContext();
+
     return (
         <>
             {item.options.length > 0 && (
                 <>
-                    <div className={`pr-2 py-2 cursor-default select-none truncate font-bold text-gray-700`}>
-                        {item.label}
-                    </div>
+                    {formatGroupLabel ? (
+                        <>
+                            {formatGroupLabel(item)}
+                        </>
+                    ) : (
+                        <div className={`pr-2 py-2 cursor-default select-none truncate font-bold text-gray-700`}>
+                            {item.label}
+                        </div>
+                    )}
 
                     {item.options.map((item, index) => (
                         <Item

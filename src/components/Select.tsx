@@ -4,7 +4,7 @@ import {ChevronIcon, CloseIcon} from "./Icons";
 import useOnClickOutside from "../hooks/use-onclick-outside";
 import SearchInput from "./SearchInput";
 import Options from "./Options";
-import {Option, Options as ListOption} from "./type";
+import {GroupOption, Option, Options as ListOption} from "./type";
 import SelectProvider from "./SelectProvider";
 import {COLORS, DEFAULT_THEME, THEME_DATA} from "../constants";
 
@@ -21,10 +21,12 @@ interface SelectProps {
     menuIsOpen?: boolean,
     searchInputPlaceholder?: string,
     noOptionsMessage?: string,
-    primaryColor: string
+    primaryColor: string,
+    formatGroupLabel?: ((data: GroupOption) => JSX.Element) | null
+    formatOptionLabel?: ((data: Option) => JSX.Element) | null
 }
 
-const Select: React.FC<SelectProps> = ({options = [], value = null, onChange, placeholder="Select...", searchInputPlaceholder = "Search...", isMultiple = false, isClearable = false, isSearchable = false, isDisabled = false, loading = false, menuIsOpen = false, noOptionsMessage = "No options found", primaryColor = DEFAULT_THEME}) => {
+const Select: React.FC<SelectProps> = ({options = [], value = null, onChange, placeholder="Select...", searchInputPlaceholder = "Search...", isMultiple = false, isClearable = false, isSearchable = false, isDisabled = false, loading = false, menuIsOpen = false, noOptionsMessage = "No options found", primaryColor = DEFAULT_THEME, formatGroupLabel = null, formatOptionLabel = null}) => {
     const [open, setOpen] = useState<boolean>(menuIsOpen);
     const [list, setList] = useState<ListOption>(options);
     const [inputValue, setInputValue] = useState<string>("");
@@ -38,7 +40,7 @@ const Select: React.FC<SelectProps> = ({options = [], value = null, onChange, pl
                 ...item,
                 disabled: false
             }
-        }
+        };
 
         setList(options.map(item => {
             if ("options" in item) {
@@ -115,6 +117,10 @@ const Select: React.FC<SelectProps> = ({options = [], value = null, onChange, pl
 
     return (
         <SelectProvider
+            otherData={{
+                formatGroupLabel,
+                formatOptionLabel
+            }}
             value={value}
             handleValueChange={handleValueChange}
         >
