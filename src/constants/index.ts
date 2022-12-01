@@ -1,15 +1,27 @@
 export const COLORS = [
-    "blue", "orange", "yellow",
-    "red", "purple", "amber",
-    "lime", "green", "emerald",
-    "teal", "cyan", "sky",
-    "indigo", "violet", "purple",
-    "fuchsia", "pink", "rose",
+    "blue",
+    "orange",
+    "yellow",
+    "red",
+    "purple",
+    "amber",
+    "lime",
+    "green",
+    "emerald",
+    "teal",
+    "cyan",
+    "sky",
+    "violet",
+    "indigo",
+    "purple",
+    "fuchsia",
+    "pink",
+    "rose"
 ];
 
 export const DEFAULT_THEME = "blue";
 
-export const THEME_DATA  = {
+export const THEME_DATA = {
     bg: {
         blue: "bg-blue-500",
         orange: "bg-orange-500",
@@ -27,7 +39,7 @@ export const THEME_DATA  = {
         violet: "bg-violet-500",
         fuchsia: "bg-fuchsia-500",
         pink: "bg-pink-500",
-        rose: "bg-rose-500",
+        rose: "bg-rose-500"
     },
     bgHover: {
         blue: "hover:bg-blue-100",
@@ -46,7 +58,7 @@ export const THEME_DATA  = {
         violet: "hover:bg-violet-100",
         fuchsia: "hover:bg-fuchsia-100",
         pink: "hover:bg-pink-100",
-        rose: "hover:bg-rose-100",
+        rose: "hover:bg-rose-100"
     },
     ring: {
         blue: "focus:ring-blue-500/20",
@@ -65,7 +77,7 @@ export const THEME_DATA  = {
         violet: "focus:ring-violet-500/20",
         fuchsia: "focus:ring-fuchsia-500/20",
         pink: "focus:ring-pink-500/20",
-        rose: "focus:ring-rose-500/20",
+        rose: "focus:ring-rose-500/20"
     },
     borderFocus: {
         blue: "focus:border-blue-500",
@@ -84,7 +96,7 @@ export const THEME_DATA  = {
         violet: "focus:border-violet-500",
         fuchsia: "focus:border-fuchsia-500",
         pink: "focus:border-pink-500",
-        rose: "focus:border-rose-500",
+        rose: "focus:border-rose-500"
     },
     text: {
         blue: "text-blue-500",
@@ -103,7 +115,7 @@ export const THEME_DATA  = {
         violet: "text-violet-500",
         fuchsia: "text-fuchsia-500",
         pink: "text-pink-500",
-        rose: "text-rose-500",
+        rose: "text-rose-500"
     },
     textHover: {
         blue: "hover:text-blue-500",
@@ -122,6 +134,6 @@ export const THEME_DATA  = {
         violet: "hover:text-violet-500",
         fuchsia: "hover:text-fuchsia-500",
         pink: "hover:text-pink-500",
-        rose: "hover:text-rose-500",
+        rose: "hover:text-rose-500"
     }
 };

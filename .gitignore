@@ -10,6 +10,7 @@ coverage
 build
 dist
 .rpt2_cache
+.eslintcache
 
 # misc
 .DS_Store
