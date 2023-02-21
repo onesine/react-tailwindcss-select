@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { forwardRef, useContext } from "react";
 
 import { SearchIcon } from "./Icons";
 import { SelectContext } from "./SelectProvider";
@@ -10,12 +10,10 @@ interface SearchInputProps {
     name?: string;
 }
 
-const SearchInput: React.FC<SearchInputProps> = ({
-    placeholder = "",
-    value = "",
-    onChange,
-    name = ""
-}) => {
+const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(function SearchInput(
+    { placeholder = "", value = "", onChange, name = "" },
+    ref
+) {
     const { classNames } = useContext(SelectContext);
     return (
         <div
@@ -33,6 +31,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
                 }
             />
             <input
+                ref={ref}
                 className={
                     classNames && classNames.searchBox
                         ? classNames.searchBox
@@ -46,6 +45,6 @@ const SearchInput: React.FC<SearchInputProps> = ({
             />
         </div>
     );
-};
+});
 
 export default SearchInput;
