@@ -67,6 +67,7 @@ const Select: React.FC<SelectProps> = ({
     const [list, setList] = useState<ListOption>(options);
     const [inputValue, setInputValue] = useState<string>("");
     const ref = useRef<HTMLDivElement>(null);
+    const searchBoxRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         const formatItem = (item: Option) => {
@@ -90,6 +91,16 @@ const Select: React.FC<SelectProps> = ({
             })
         );
     }, [options]);
+
+    useEffect(() => {
+        if (isSearchable) {
+            if (open) {
+                searchBoxRef.current?.select();
+            } else {
+                setInputValue("");
+            }
+        }
+    }, [open, isSearchable]);
 
     const toggle = useCallback(() => {
         if (!isDisabled) {
@@ -297,6 +308,7 @@ const Select: React.FC<SelectProps> = ({
                     >
                         {isSearchable && (
                             <SearchInput
+                                ref={searchBoxRef}
                                 value={inputValue}
                                 placeholder={searchInputPlaceholder}
                                 onChange={e => setInputValue(e.target.value)}
