@@ -407,7 +407,7 @@ const App = () => {
                     className={`block transition duration-200 px-2 py-2 cursor-pointer select-none truncate rounded ${
                         !data.isSelected
                             ? `text-white bg-blue-500`
-                            : `text-gray-500 bg-blue-100 text-blue-500`
+                            : `bg-blue-100 text-blue-500`
                     }`}
                 >
                     // data represents each option in the list
