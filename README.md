@@ -326,15 +326,15 @@ const options = [
     {
         label: "Mammal",
         options: [
-            { value: "Dolphin", labe: "🐬 Dolphin" },
-            { value: "Giraffe", labe: "🦒 Giraffe" }
+            { value: "Dolphin", label: "🐬 Dolphin" },
+            { value: "Giraffe", label: "🦒 Giraffe" }
         ]
     },
     {
         label: "Carnivore",
         options: [
-            { value: "Tiger", labe: "🐅 Tiger" },
-            { value: "Lion", labe: "🦁 Lion" }
+            { value: "Tiger", label: "🐅 Tiger" },
+            { value: "Lion", label: "🦁 Lion" }
         ]
     }
 ];
