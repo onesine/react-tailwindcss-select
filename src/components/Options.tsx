@@ -94,11 +94,7 @@ const Options: React.FC<OptionsProps> = ({
     return (
         <div
             role="options"
-            className={
-                classNames && classNames.list
-                    ? classNames.list
-                    : "max-h-72 overflow-y-auto"
-            }
+            className={classNames && classNames.list ? classNames.list : "max-h-72 overflow-y-auto"}
         >
             {filterResult.map((item, index) => (
                 <React.Fragment key={index}>
