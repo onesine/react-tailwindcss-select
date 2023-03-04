@@ -14,6 +14,7 @@ interface SelectProps {
     options: ListOption;
     value: Option | Option[] | null;
     onChange: (value?: Option | Option[] | null) => void;
+    onSearchInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     placeholder?: string;
     isMultiple?: boolean;
     isClearable?: boolean;
@@ -49,6 +50,7 @@ const Select: React.FC<SelectProps> = ({
     options = [],
     value = null,
     onChange,
+    onSearchInputChange,
     placeholder = "Select...",
     searchInputPlaceholder = "Search...",
     isMultiple = false,
@@ -311,7 +313,10 @@ const Select: React.FC<SelectProps> = ({
                                 ref={searchBoxRef}
                                 value={inputValue}
                                 placeholder={searchInputPlaceholder}
-                                onChange={e => setInputValue(e.target.value)}
+                                onChange={e => {
+                                    onSearchInputChange(e);
+                                    setInputValue(e.target.value);
+                                }}
                             />
                         )}
 
