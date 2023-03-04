@@ -27,7 +27,7 @@
 -   ✅ Optional deactivation of an option
 -   ✅ TypeScript support
 -   ✅ Group options
--   ⬜ Customization of the select field style
+-   ✅ Customization of the select field style
 -   ⬜ Fixed Options (multiple items select)
 
 ## Why ❔
@@ -209,11 +209,11 @@ const App = () => {
     };
 
     return (
-        <Select 
-            primaryColor={"indigo"} 
-            value={animal} 
-            onChange={handleChange} 
-            options={options} 
+        <Select
+            primaryColor={"indigo"}
+            value={animal}
+            onChange={handleChange}
+            options={options}
         />
     );
 };
@@ -225,24 +225,25 @@ export default App;
 
 This table shows all the options available in react-tailwindcss-select.
 
-| Option                                    | Type       | Default            | Description                                                                      |
-|-------------------------------------------|------------|--------------------|----------------------------------------------------------------------------------|
-| [`classNames`](#classNames)               | `Object`   | `undefined`        | This prop allows you to style most of the components used by this library.       |
-| `isClearable`                             | `Boolean`  | `true`             | Indicates if you can empty the select field.                                     |
-| `isDisabled`                              | `Boolean`  | `false`            | Indicates if you can disable the select field.                                   |
-| `isMultiple`                              | `Boolean`  | `false`            | Indicates if you can do a multiple selection.                                    |
-| `isSearchable`                            | `Boolean`  | `true`             | Indicates if you can search the elements of the select field.                    |
-| [`formatGroupLabel`](#formatGroupLabel)   | `Function` | `null`             | Allows you to use a custom rendering template for each subgroup title            |
-| [`formatOptionLabel`](#formatOptionLabel) | `Function` | `null`             | Allows you to use a custom rendering template for each option in the list        |
-| `loading`                                 | `Boolean`  | `false`            | Indicates if you want a loader to appear in the field.                           |
-| `menuIsOpen`                              | `Boolean`  | `false`            | Indicates if you want the options menu to be displayed by default.               |
-| `noOptionsMessage`                        | `String`   | `No results found` | Default message when there is no option in the select field.                     |
-| [`onChange`](#onChange)                   | `Function` |                    | This callback, if present, is triggered when the select field value is modified. |
-| [`options`](#options)                     | `Array`    | `[]`               | All options or options groups available in the selection field.                  |
-| `placeholder`                             | `String`   | `Select...`        | The placeholder shown for the select field.                                      |
-| `primaryColor`                            | `String`   | `blue`             | Default theme of the field.                                                      |
-| `searchInputPlaceholder`                  | `String`   | `Search...`        | The placeholder shown for the search input field.                                |
-| [`value`](#value)                         | `Object`   | `null`             | Current value of select field.                                                   |
+| Option                                        | Type       | Default            | Description                                                                            |
+|-----------------------------------------------|------------|--------------------|----------------------------------------------------------------------------------------|
+| [`classNames`](#classNames)                   | `Object`   | `undefined`        | This prop allows you to style most of the components used by this library.             |
+| `isClearable`                                 | `Boolean`  | `true`             | Indicates if you can empty the select field.                                           |
+| `isDisabled`                                  | `Boolean`  | `false`            | Indicates if you can disable the select field.                                         |
+| `isMultiple`                                  | `Boolean`  | `false`            | Indicates if you can do a multiple selection.                                          |
+| `isSearchable`                                | `Boolean`  | `true`             | Indicates if you can search the elements of the select field.                          |
+| [`formatGroupLabel`](#formatGroupLabel)       | `Function` | `null`             | Allows you to use a custom rendering template for each subgroup title                  |
+| [`formatOptionLabel`](#formatOptionLabel)     | `Function` | `null`             | Allows you to use a custom rendering template for each option in the list              |
+| `loading`                                     | `Boolean`  | `false`            | Indicates if you want a loader to appear in the field.                                 |
+| `menuIsOpen`                                  | `Boolean`  | `false`            | Indicates if you want the options menu to be displayed by default.                     |
+| `noOptionsMessage`                            | `String`   | `No results found` | Default message when there is no option in the select field.                           |
+| [`onChange`](#onChange)                       | `Function` |                    | This callback, if present, is triggered when the select field value is modified.       |
+| [`onSearchInputChange`](#onSearchInputChange) | `Function` |                    | This callback, if present, is triggered when the search input field value is modified. |
+| [`options`](#options)                         | `Array`    | `[]`               | All options or options groups available in the selection field.                        |
+| `placeholder`                                 | `String`   | `Select...`        | The placeholder shown for the select field.                                            |
+| `primaryColor`                                | `String`   | `blue`             | Default theme of the field.                                                            |
+| `searchInputPlaceholder`                      | `String`   | `Search...`        | The placeholder shown for the search input field.                                      |
+| [`value`](#value)                             | `Object`   | `null`             | Current value of select field.                                                         |
 
 ### onChange
 
@@ -253,6 +254,17 @@ elements of the options.
 ```js
 currentValue => {
     console.log("currentValue:", currentValue);
+};
+```
+
+### onSearchInputChange
+
+This callback, if present, is triggered when the search input field value is modified. This callback takes
+as parameter a `React.ChangeEvent<HTMLInputElement>`.
+
+```js
+e => {
+    console.log("value:", e.target.value);
 };
 ```
 
@@ -432,7 +444,7 @@ As of version 1.6.0 of `react-tailwindcss-select` you can now use the `className
 >
 > 👉 Note: this is not to be confused with the className prop, which will add a class to the component.
 
-`classNames` takes an object with keys to represent the various inner components that `react-tailwindcss-select` is made up of. 
+`classNames` takes an object with keys to represent the various inner components that `react-tailwindcss-select` is made up of.
 
 Each key takes a callback function or a string. If a key is not filled in, the default classes of the component will be used.
 
