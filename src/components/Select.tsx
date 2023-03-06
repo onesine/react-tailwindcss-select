@@ -8,12 +8,12 @@ import Options from "./Options";
 import SearchInput from "./SearchInput";
 import SelectProvider from "./SelectProvider";
 import Spinner from "./Spinner";
-import { GroupOption, Option, Options as ListOption } from "./type";
+import { ClassNames, GroupOption, Option, Options as ListOption, SelectValue } from "./type";
 
 interface SelectProps {
     options: ListOption;
-    value: Option | Option[] | null;
-    onChange: (value: Option | Option[] | null) => void;
+    value: SelectValue;
+    onChange: (value: SelectValue) => void;
     onSearchInputChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     placeholder?: string;
     isMultiple?: boolean;
@@ -27,23 +27,7 @@ interface SelectProps {
     primaryColor: string;
     formatGroupLabel?: ((data: GroupOption) => JSX.Element) | null;
     formatOptionLabel?: ((data: Option) => JSX.Element) | null;
-    classNames?: {
-        menuButton?: ({ isDisabled }: { isDisabled: boolean }) => string;
-        menu?: string;
-        tagItem?: ({ isDisabled }: { isDisabled: boolean }) => string;
-        tagItemText?: string;
-        tagItemIconContainer?: string;
-        tagItemIcon?: string;
-        list?: string;
-        listGroupLabel?: string;
-        listItem?: ({ isSelected }: { isSelected: boolean }) => string;
-        listDisabledItem?: string;
-        ChevronIcon?: ({ open }: { open: boolean }) => string;
-        searchContainer?: string;
-        searchBox?: string;
-        searchIcon?: string;
-        closeIcon?: string;
-    };
+    classNames?: ClassNames;
 }
 
 const Select: React.FC<SelectProps> = ({

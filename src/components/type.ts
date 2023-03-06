@@ -29,3 +29,5 @@ export interface ClassNames {
     searchIcon?: string;
     closeIcon?: string;
 }
+
+export type SelectValue = Option | Option[] | null;
