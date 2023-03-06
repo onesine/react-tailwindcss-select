@@ -3,66 +3,68 @@ import Select from "../src";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import SelectContainer from "../components/SelectContainer";
-import {useCallback, useEffect, useState} from "react";
+import { useCallback, useEffect, useState } from "react";
 import TailwindColors from "../components/TailwindColors";
 import Checkbox from "../components/Checkbox";
 import Alert from "../components/Alert";
-import {DarkLink, LightLink} from "../components/Link";
+import { DarkLink, LightLink } from "../components/Link";
 
 const MANGAS = [
     {
         label: "SHONEN",
         options: [
-            {value: "One Piece", label: "🤩 One Piece", disabled: false},
-            {value: "Naruto Shippûden", label: "🤭 Naruto Shippûden", disabled: false},
-            {value: "Hunter x Hunter", label: "🥰 Hunter x Hunter", disabled: false},
+            { value: "One Piece", label: "🤩 One Piece", disabled: false },
+            { value: "Naruto Shippûden", label: "🤭 Naruto Shippûden", disabled: false },
+            { value: "Hunter x Hunter", label: "🥰 Hunter x Hunter", disabled: false }
         ]
     },
     {
         label: "SHOJO",
         options: [
-            {value: "Orange", label: "🤩 Orange", disabled: false},
-            {value: "Nana", label: "🤭 Nana", disabled: false},
-            {value: "Tonari no Kaibutsu-kun", label: "🥰 Tonari no Kaibutsu-kun", disabled: false},
+            { value: "Orange", label: "🤩 Orange", disabled: false },
+            { value: "Nana", label: "🤭 Nana", disabled: false },
+            { value: "Tonari no Kaibutsu-kun", label: "🥰 Tonari no Kaibutsu-kun", disabled: false }
         ]
     },
     {
         label: "SEINEN",
         options: [
-            {value: "Death Note", label: "🤩 Death Note", disabled: false},
-            {value: "Btooom!", label: "🤭 Btooom!", disabled: false},
-            {value: "Black Lagoon", label: "🥰 Black Lagoon", disabled: false},
+            { value: "Death Note", label: "🤩 Death Note", disabled: false },
+            { value: "Btooom!", label: "🤭 Btooom!", disabled: false },
+            { value: "Black Lagoon", label: "🥰 Black Lagoon", disabled: false }
         ]
     },
     {
         label: "JOSEI",
         options: [
-            {value: "Nodame Cantabile", label: "🤩 Nodame Cantabile", disabled: false},
-            {value: "Chihayafuru", label: "🤭 Chihayafuru", disabled: false},
-            {value: "Blue", label: "🥰 Blue", disabled: false},
+            { value: "Nodame Cantabile", label: "🤩 Nodame Cantabile", disabled: false },
+            { value: "Chihayafuru", label: "🤭 Chihayafuru", disabled: false },
+            { value: "Blue", label: "🥰 Blue", disabled: false }
         ]
     },
-    {value: "Naruto Shippûden", label: "🤭 Naruto Shippûden", disabled: false},
-    {value: "One Piece", label: "🤩 One Piece", disabled: false},
-    {value: "Bleach", label: "🥹 Bleach", disabled: false},
-    {value: "Boruto", label: "😡 Boruto", disabled: false},
-    {value: "Hunter x Hunter", label: "🥰 Hunter x Hunter", disabled: false},
-    {value: "Dragon Ball Z", label: "🥵 Dragon Ball Z", disabled: false},
-    {value: "Fullmetal Alchemist", label: "🫡 Fullmetal Alchemist", disabled: false},
-    {value: "My Hero Academia", label: "🤯 My Hero Academia", disabled: false},
-    {value: "Black Clover", label: "😍 Black Clover", disabled: false},
+    { value: "Naruto Shippûden", label: "🤭 Naruto Shippûden", disabled: false },
+    { value: "One Piece", label: "🤩 One Piece", disabled: false },
+    { value: "Bleach", label: "🥹 Bleach", disabled: false },
+    { value: "Boruto", label: "😡 Boruto", disabled: false },
+    { value: "Hunter x Hunter", label: "🥰 Hunter x Hunter", disabled: false },
+    { value: "Dragon Ball Z", label: "🥵 Dragon Ball Z", disabled: false },
+    { value: "Fullmetal Alchemist", label: "🫡 Fullmetal Alchemist", disabled: false },
+    { value: "My Hero Academia", label: "🤯 My Hero Academia", disabled: false },
+    { value: "Black Clover", label: "😍 Black Clover", disabled: false }
 ];
 
 const SELECT_OPTIONS = [
-    "isClearable", "isSearchable", "isMultiple", "isDisabled", "loading", "isGroupOption"
+    "isClearable",
+    "isSearchable",
+    "isMultiple",
+    "isDisabled",
+    "loading",
+    "isGroupOption"
 ];
 
 const printAlertContent = (element, value) => {
-    const printText = (text, value) => (
-        value ? (
-            <p className="text-xs md:text-sm transition duration-75">{text}</p>
-        ) : null
-    );
+    const printText = (text, value) =>
+        value ? <p className="text-xs md:text-sm transition duration-75">{text}</p> : null;
 
     switch (element) {
         case "isClearable":
@@ -106,67 +108,65 @@ const Home = () => {
         };
     }, []);
 
-    const filterOptions = useCallback((data) => {
-        return data.filter(item => isGroupOption ? ("options" in item) : !("options" in item))
-    }, [isGroupOption]);
-
+    const filterOptions = useCallback(
+        data => {
+            return data.filter(item => (isGroupOption ? "options" in item : !("options" in item)));
+        },
+        [isGroupOption]
+    );
 
     const toggleShowCode = useCallback(() => {
         setShowCode(!showCode);
     }, [showCode]);
 
-    const dispatch = useCallback((type = null, action, valueData = null) => {
-        switch (type) {
-            case "isClearable":
-                if (action === "set")
-                    setIsClearable(valueData);
-                if (action === "get")
-                    return isClearable;
-                break;
-            case "isSearchable":
-                if (action === "set")
-                    setIsSearchable(valueData);
-                if (action === "get")
-                    return isSearchable;
-                break;
-            case "isMultiple":
-                if (action === "set") {
-                    if (value !== null) {
-                        setValue(null);
+    const dispatch = useCallback(
+        (type = null, action, valueData = null) => {
+            switch (type) {
+                case "isClearable":
+                    if (action === "set") setIsClearable(valueData);
+                    if (action === "get") return isClearable;
+                    break;
+                case "isSearchable":
+                    if (action === "set") setIsSearchable(valueData);
+                    if (action === "get") return isSearchable;
+                    break;
+                case "isMultiple":
+                    if (action === "set") {
+                        if (value !== null) {
+                            setValue(null);
+                        }
+                        setIsMultiple(valueData);
                     }
-                    setIsMultiple(valueData);
-                }
-                if (action === "get")
-                    return isMultiple;
-                break;
-            case "isDisabled":
-                if (action === "set")
-                    setIsDisabled(valueData);
-                if (action === "get")
-                    return isDisabled;
-                break;
-            case "loading":
-                if (action === "set")
-                    setLoading(valueData);
-                if (action === "get")
-                    return loading;
-                break;
-            case "isGroupOption":
-                if (action === "set") {
-                    setIsGroupOption(valueData);
-                }
+                    if (action === "get") return isMultiple;
+                    break;
+                case "isDisabled":
+                    if (action === "set") setIsDisabled(valueData);
+                    if (action === "get") return isDisabled;
+                    break;
+                case "loading":
+                    if (action === "set") setLoading(valueData);
+                    if (action === "get") return loading;
+                    break;
+                case "isGroupOption":
+                    if (action === "set") {
+                        setIsGroupOption(valueData);
+                    }
 
-                if (action === "get")
-                    return isGroupOption;
-                break;
-            default:
-                break;
-        }
-    }, [isClearable, isDisabled, isGroupOption, isMultiple, isSearchable, loading, value]);
+                    if (action === "get") return isGroupOption;
+                    break;
+                default:
+                    break;
+            }
+        },
+        [isClearable, isDisabled, isGroupOption, isMultiple, isSearchable, loading, value]
+    );
 
-    const handleCheck = useCallback((value, item) => {
-        dispatch(item, "set", value);
-    }, [dispatch]);
+    const handleCheck = useCallback(
+        (value, item) => {
+            dispatch(item, "set", value);
+        },
+        [dispatch]
+    );
 
     return (
         <>
@@ -175,7 +175,9 @@ const Home = () => {
             </Head>
 
             <div className="w-full min-h-screen px-5 md:px-20 lg:px-36 md:flex md:flex-col md:justify-between">
-                <h1 className="text-slate-600 mt-4 md:mt-8 lg:mt-20 mb-24 md:mb-8 md:text-xl lg:text-3xl text-center font-semibold">Demo react-tailwindcss-select</h1>
+                <h1 className="text-slate-600 mt-4 md:mt-8 lg:mt-20 mb-24 md:mb-8 md:text-xl lg:text-3xl text-center font-semibold">
+                    Demo react-tailwindcss-select
+                </h1>
 
                 <div className="w-full">
                     <Header>
@@ -188,15 +190,33 @@ const Home = () => {
                         </Button>
                     </Header>
 
-
-                    <div className={`transition duration-75 ${showCode ? 'bg-slate-800' : 'bg-gray-100'} px-2 pb-6 md:p-8 min-h-[15rem] rounded-md border md:min-h-[20rem] lg:min-h-[25rem] w-full`}>
+                    <div
+                        className={`transition duration-75 ${
+                            showCode ? "bg-slate-800" : "bg-gray-100"
+                        } px-2 pb-6 md:p-8 min-h-[15rem] rounded-md border md:min-h-[20rem] lg:min-h-[25rem] w-full`}
+                    >
                         {showCode ? (
                             <div>
-                                <h2 className="text-white mt-8 font-semibold text-xl md:text-3xl lg:text-5xl xl:text-6xl">This part will be available soon.</h2>
+                                <h2 className="text-white mt-8 font-semibold text-xl md:text-3xl lg:text-5xl xl:text-6xl">
+                                    This part will be available soon.
+                                </h2>
                                 <p className="mt-3 md:mt-5 lg:mt-8 text-slate-400 text-xs md:text-sm lg:text-base">
-                                    You can access the source code of the demo project <DarkLink url="https://github.com/onesine/demo-react-tailwindcss-select">here</DarkLink>. <br/>
-                                    Any contribution to the package will be welcome. You can access the package source code <DarkLink url="https://github.com/onesine/react-tailwindcss-select">here</DarkLink><br/>
-                                    Thanks for testing <DarkLink url="https://www.npmjs.com/package/react-tailwindcss-select">react-tailwindcss-select</DarkLink> and have a nice 👋 day.
+                                    You can access the source code of the demo project{" "}
+                                    <DarkLink url="https://github.com/onesine/demo-react-tailwindcss-select">
+                                        here
+                                    </DarkLink>
+                                    . <br />
+                                    Any contribution to the package will be welcome. You can access
+                                    the package source code{" "}
+                                    <DarkLink url="https://github.com/onesine/react-tailwindcss-select">
+                                        here
+                                    </DarkLink>
+                                    <br />
+                                    Thanks for testing{" "}
+                                    <DarkLink url="https://www.npmjs.com/package/react-tailwindcss-select">
+                                        react-tailwindcss-select
+                                    </DarkLink>{" "}
+                                    and have a nice 👋 day.
                                 </p>
                             </div>
                         ) : (
@@ -237,11 +257,19 @@ const Home = () => {
                                     ))}
                                 </div>
 
-                                <TailwindColors changeColor={color => setPrimaryColor(color)}/>
+                                <TailwindColors changeColor={color => setPrimaryColor(color)} />
 
-                                <p className="mt-3 text-center text-xs text-gray-500 font-semibold">If you want to try a theme proposed by one of these colors. You can click disappointed.</p>
+                                <p className="mt-3 text-center text-xs text-gray-500 font-semibold">
+                                    If you want to try a theme proposed by one of these colors. You
+                                    can click disappointed.
+                                </p>
 
-                                {(isClearable || isSearchable || isMultiple || isDisabled || loading || isGroupOption) && (
+                                {(isClearable ||
+                                    isSearchable ||
+                                    isMultiple ||
+                                    isDisabled ||
+                                    loading ||
+                                    isGroupOption) && (
                                     <div className="mt-10 transition duration-75">
                                         <Alert title={"Information"}>
                                             {printAlertContent("isClearable", isClearable)}
@@ -258,7 +286,11 @@ const Home = () => {
                     </div>
                 </div>
 
-                <p className="text-center py-10 text-slate-500 text-sm">Made with ❤️ by <LightLink url="https://twitter.com/LewheO">Onesine</LightLink>, powered by <LightLink url="https://reactjs.org/">react</LightLink> and <LightLink url="https://tailwindcss.com/">tailwindcss</LightLink>.</p>
+                <p className="text-center py-10 text-slate-500 text-sm">
+                    Made with ❤️ by <LightLink url="https://twitter.com/LewheO">Onesine</LightLink>,
+                    powered by <LightLink url="https://reactjs.org/">react</LightLink> and{" "}
+                    <LightLink url="https://tailwindcss.com/">tailwindcss</LightLink>.
+                </p>
             </div>
         </>
     );

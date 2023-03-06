@@ -1,4 +1,4 @@
-const Checkbox = ({children, checked, onChange, id}) => {
+const Checkbox = ({ children, checked, onChange, id }) => {
     return (
         <label htmlFor={id} className="space-x-2 inline-block mr-2">
             <input
