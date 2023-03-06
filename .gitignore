@@ -3,6 +3,7 @@
 # dependencies
 node_modules
 /.next/
+/.rollup.cache/
 
 # test coverage
 coverage
