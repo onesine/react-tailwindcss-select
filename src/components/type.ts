@@ -13,17 +13,17 @@ export interface GroupOption {
 export type Options = Array<Option | GroupOption>;
 
 export interface ClassNames {
-    menuButton?: ({ isDisabled }: { isDisabled: boolean }) => string;
+    menuButton?: (value?: { isDisabled?: boolean }) => string;
     menu?: string;
-    tagItem?: ({ isDisabled }: { isDisabled: boolean }) => string;
+    tagItem?: (value?: { item?: Option, isDisabled?: boolean }) => string;
     tagItemText?: string;
     tagItemIconContainer?: string;
     tagItemIcon?: string;
     list?: string;
     listGroupLabel?: string;
-    listItem?: ({ isSelected }: { isSelected: boolean }) => string;
+    listItem?: (value?: { isSelected?: boolean }) => string;
     listDisabledItem?: string;
-    ChevronIcon?: ({ open }: { open: boolean }) => string;
+    ChevronIcon?: (value?: { open?: boolean }) => string;
     searchContainer?: string;
     searchBox?: string;
     searchIcon?: string;

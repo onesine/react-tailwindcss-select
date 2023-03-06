@@ -178,11 +178,11 @@ const Select: React.FC<SelectProps> = ({
             : defaultClass;
     }, [classNames, isDisabled, primaryColor]);
 
-    const getTagItemClass = useCallback(() => {
+    const getTagItemClass = useCallback((item: Option) => {
         const baseClasse = "bg-gray-200 border rounded-sm flex space-x-1";
         const disabledClass = isDisabled ? "border-gray-500 px-1" : "pl-1";
-        return classNames && classNames.tagItem
-            ? classNames.tagItem({ isDisabled })
+        return classNames?.tagItem
+            ? classNames.tagItem({ item, isDisabled })
             : `${baseClasse} ${disabledClass}`;
     }, [classNames, isDisabled]);
 
@@ -215,10 +215,10 @@ const Select: React.FC<SelectProps> = ({
 
                                 {Array.isArray(value) &&
                                     value.map((item, index) => (
-                                        <div className={getTagItemClass()} key={index}>
+                                        <div className={getTagItemClass(item)} key={index}>
                                             <p
                                                 className={
-                                                    classNames && classNames.tagItemText
+                                                    classNames?.tagItemText
                                                         ? classNames.tagItemText
                                                         : "text-gray-600 truncate cursor-default select-none"
                                                 }
@@ -229,15 +229,14 @@ const Select: React.FC<SelectProps> = ({
                                                 <div
                                                     onClick={e => removeItem(e, item)}
                                                     className={
-                                                        classNames &&
-                                                        classNames.tagItemIconContainer
+                                                        classNames?.tagItemIconContainer
                                                             ? classNames.tagItemIconContainer
                                                             : "flex items-center px-1 cursor-pointer rounded-r-sm hover:bg-red-200 hover:text-red-600"
                                                     }
                                                 >
                                                     <CloseIcon
                                                         className={
-                                                            classNames && classNames.tagItemIcon
+                                                            classNames?.tagItemIcon
                                                                 ? classNames.tagItemIcon
                                                                 : "w-3 h-3 mt-0.5"
                                                         }
@@ -261,7 +260,7 @@ const Select: React.FC<SelectProps> = ({
                             <div className="px-1.5 cursor-pointer" onClick={clearValue}>
                                 <CloseIcon
                                     className={
-                                        classNames && classNames.closeIcon
+                                        classNames?.closeIcon
                                             ? classNames.closeIcon
                                             : "w-5 h-5 p-0.5"
                                     }
@@ -287,7 +286,7 @@ const Select: React.FC<SelectProps> = ({
                     <div
                         tabIndex={-1}
                         className={
-                            classNames && classNames.menu
+                            classNames?.menu
                                 ? classNames.menu
                                 : "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-gray-700"
                         }
