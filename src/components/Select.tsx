@@ -178,13 +178,16 @@ const Select: React.FC<SelectProps> = ({
             : defaultClass;
     }, [classNames, isDisabled, primaryColor]);
 
-    const getTagItemClass = useCallback((item: Option) => {
-        const baseClasse = "bg-gray-200 border rounded-sm flex space-x-1";
-        const disabledClass = isDisabled ? "border-gray-500 px-1" : "pl-1";
-        return classNames?.tagItem
-            ? classNames.tagItem({ item, isDisabled })
-            : `${baseClasse} ${disabledClass}`;
-    }, [classNames, isDisabled]);
+    const getTagItemClass = useCallback(
+        (item: Option) => {
+            const baseClasse = "bg-gray-200 border rounded-sm flex space-x-1";
+            const disabledClass = isDisabled ? "border-gray-500 px-1" : "pl-1";
+            return classNames?.tagItem
+                ? classNames.tagItem({ item, isDisabled })
+                : `${baseClasse} ${disabledClass}`;
+        },
+        [classNames, isDisabled]
+    );
 
     return (
         <SelectProvider

@@ -15,7 +15,7 @@ export type Options = Array<Option | GroupOption>;
 export interface ClassNames {
     menuButton?: (value?: { isDisabled?: boolean }) => string;
     menu?: string;
-    tagItem?: (value?: { item?: Option, isDisabled?: boolean }) => string;
+    tagItem?: (value?: { item?: Option; isDisabled?: boolean }) => string;
     tagItemText?: string;
     tagItemIconContainer?: string;
     tagItemIcon?: string;
