@@ -523,6 +523,21 @@ const App = () => {
 export default App;
 ```
 
+## PlayGround
+
+Clone the `master` branch and run commands:
+
+```sh
+# Using npm
+npm install && npm dev
+
+# Using yarn
+yarn install && yarn dev
+
+```
+
+Open a browser and navigate to `http://localhost:8888`
+
 ## Contributing
 
 Got ideas on how to make this better? Open an issue!
