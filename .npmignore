@@ -15,6 +15,7 @@ babel.config.json
 tsconfig.json
 rollup.config.js
 next.config.js
+next-env.d.ts
 .gitignore
 .eslintignore
 .eslintrc.json
