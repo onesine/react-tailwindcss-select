@@ -542,6 +542,8 @@ Open a browser and navigate to `http://localhost:8888`
 
 Got ideas on how to make this better? Open an issue!
 
+Don't forget to see [CONTRIBUTING.md](https://github.com/onesine/react-tailwindcss-select/blob/master/CONTRIBUTING.md)
+
 ## Thanks
 
 This component is inspired by the excellent [react-select](https://react-select.com/) library by Jed
