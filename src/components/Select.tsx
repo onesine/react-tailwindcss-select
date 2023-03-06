@@ -13,7 +13,7 @@ import { GroupOption, Option, Options as ListOption } from "./type";
 interface SelectProps {
     options: ListOption;
     value: Option | Option[] | null;
-    onChange: (value?: Option | Option[] | null) => void;
+    onChange: (value: Option | Option[] | null) => void;
     onSearchInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     placeholder?: string;
     isMultiple?: boolean;

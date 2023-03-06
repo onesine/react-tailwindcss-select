@@ -2,6 +2,7 @@
 
 # dependencies
 node_modules
+/.next/
 
 # test coverage
 coverage
@@ -11,6 +12,7 @@ build
 dist
 .rpt2_cache
 .eslintcache
+tsconfig.tsbuildinfo
 
 # misc
 .DS_Store

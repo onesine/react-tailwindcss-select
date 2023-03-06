@@ -1,6 +1,8 @@
 # Folders
 dist/
 assets/
+.next/
+.rollup.cache/
 
 # Files
 README.md

@@ -1,6 +1,9 @@
 # Folders
 dist/
 assets/
+pages/
+components/
+styles/
 
 # Files
 README.md
