@@ -15,6 +15,7 @@ interface OptionsProps {
     isMultiple: boolean;
     value: Option | Option[] | null;
     primaryColor: string;
+    noHighLigthLabel: boolean;
 }
 
 const Options: React.FC<OptionsProps> = ({
@@ -23,7 +24,8 @@ const Options: React.FC<OptionsProps> = ({
     text,
     isMultiple,
     value,
-    primaryColor = DEFAULT_THEME
+    primaryColor = DEFAULT_THEME,
+    noHighLigthLabel
 }) => {
     const { classNames } = useContext(SelectContext);
     const filterByText = useCallback(() => {
@@ -104,6 +106,8 @@ const Options: React.FC<OptionsProps> = ({
                                 <GroupItem
                                     primaryColor={primaryColor || DEFAULT_THEME}
                                     item={item}
+                                    searchInputValue={text}
+                                    noHighLigthLabel={noHighLigthLabel}
                                 />
                             </div>
 
@@ -111,7 +115,12 @@ const Options: React.FC<OptionsProps> = ({
                         </>
                     ) : (
                         <div className="px-2.5">
-                            <Item primaryColor={primaryColor || DEFAULT_THEME} item={item} />
+                            <Item
+                                primaryColor={primaryColor || DEFAULT_THEME}
+                                item={item}
+                                searchInputValue={text}
+                                noHighLigthLabel={noHighLigthLabel}
+                            />
                         </div>
                     )}
                 </React.Fragment>

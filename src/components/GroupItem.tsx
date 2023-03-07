@@ -7,9 +7,16 @@ import { GroupOption } from "./type";
 interface GroupItemProps {
     item: GroupOption;
     primaryColor: string;
+    searchInputValue?: string;
+    noHighLigthLabel: boolean;
 }
 
-const GroupItem: React.FC<GroupItemProps> = ({ item, primaryColor }) => {
+const GroupItem: React.FC<GroupItemProps> = ({
+    item,
+    primaryColor,
+    searchInputValue,
+    noHighLigthLabel
+}) => {
     const { classNames, formatGroupLabel } = useSelectContext();
 
     return (
@@ -31,7 +38,13 @@ const GroupItem: React.FC<GroupItemProps> = ({ item, primaryColor }) => {
                     )}
 
                     {item.options.map((item, index) => (
-                        <Item primaryColor={primaryColor} key={index} item={item} />
+                        <Item
+                            primaryColor={primaryColor}
+                            key={index}
+                            item={item}
+                            searchInputValue={searchInputValue}
+                            noHighLigthLabel={noHighLigthLabel}
+                        />
                     ))}
                 </>
             )}

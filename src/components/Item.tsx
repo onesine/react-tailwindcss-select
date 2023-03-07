@@ -9,9 +9,11 @@ import { Option } from "./type";
 interface ItemProps {
     item: Option;
     primaryColor: string;
+    searchInputValue?: string;
+    noHighLigthLabel: boolean;
 }
 
-const Item: React.FC<ItemProps> = ({ item, primaryColor }) => {
+const Item: React.FC<ItemProps> = ({ item, primaryColor, searchInputValue, noHighLigthLabel }) => {
     const { classNames, value, handleValueChange, formatOptionLabel } = useSelectContext();
 
     const isSelected = useMemo(() => {
@@ -51,6 +53,26 @@ const Item: React.FC<ItemProps> = ({ item, primaryColor }) => {
             : `${baseClass} ${selectedClass}`;
     }, [bgColor, bgHoverColor, classNames, isSelected, textHoverColor]);
 
+    const getLabel = useCallback(() => {
+        if (!noHighLigthLabel && searchInputValue) {
+            const start = item.label.toUpperCase().indexOf(searchInputValue.toUpperCase());
+            const end = start + searchInputValue.length;
+            return item.label.split("").map((label, idx) => {
+                if (idx >= start && idx < end) {
+                    return (
+                        <span key={idx} className={`font-bold text-${primaryColor}-500`}>
+                            {label}
+                        </span>
+                    );
+                } else {
+                    return <span key={idx}>{label}</span>;
+                }
+            });
+        } else {
+            return <span>{item.label}</span>;
+        }
+    }, [item.label, noHighLigthLabel, primaryColor, searchInputValue]);
+
     return (
         <>
             {formatOptionLabel ? (
@@ -68,7 +90,7 @@ const Item: React.FC<ItemProps> = ({ item, primaryColor }) => {
                             onClick={() => handleValueChange(item)}
                             className={getItemClass()}
                         >
-                            {item.label}
+                            {getLabel()}
                         </li>
                     )}
                 </>
