@@ -159,7 +159,8 @@ const Select: React.FC<SelectProps> = ({
 
         let borderFocus = THEME_DATA.borderFocus[DEFAULT_THEME];
         if (COLORS.includes(primaryColor)) {
-            borderFocus = THEME_DATA.borderFocus[primaryColor as keyof typeof THEME_DATA.borderFocus];
+            borderFocus =
+                THEME_DATA.borderFocus[primaryColor as keyof typeof THEME_DATA.borderFocus];
         }
         const baseClass =
             "flex text-sm text-gray-500 border border-gray-300 rounded shadow-sm transition-all duration-300 focus:outline-none";
