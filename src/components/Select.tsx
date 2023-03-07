@@ -8,7 +8,14 @@ import Options from "./Options";
 import SearchInput from "./SearchInput";
 import SelectProvider from "./SelectProvider";
 import Spinner from "./Spinner";
-import { ClassNames, GroupOption, Option, Options as ListOption, SelectValue } from "./type";
+import {
+    ClassNames,
+    GroupOption,
+    Option,
+    Options as ListOption,
+    SelectValue,
+    AutoScrollOption
+} from "./type";
 
 interface SelectProps {
     options: ListOption;
@@ -25,6 +32,7 @@ interface SelectProps {
     searchInputPlaceholder?: string;
     noOptionsMessage?: string;
     primaryColor: string;
+    autoScrollOnMobile?: AutoScrollOption;
     formatGroupLabel?: ((data: GroupOption) => JSX.Element) | null;
     formatOptionLabel?: ((data: Option) => JSX.Element) | null;
     classNames?: ClassNames;
@@ -43,6 +51,10 @@ const Select: React.FC<SelectProps> = ({
     isDisabled = false,
     loading = false,
     menuIsOpen = false,
+    autoScrollOnMobile = {
+        enabled: false,
+        scrollHeight: 50
+    },
     noOptionsMessage = "No options found",
     primaryColor = DEFAULT_THEME,
     formatGroupLabel = null,
@@ -189,6 +201,17 @@ const Select: React.FC<SelectProps> = ({
         [classNames, isDisabled]
     );
 
+    const scrollOnMobile = useCallback(() => {
+        if (autoScrollOnMobile.enabled && ref.current?.offsetTop) {
+            if (ref.current.offsetWidth < 640 && ref.current?.offsetTop / 2 >= window.scrollY) {
+                window.scrollTo({
+                    top: ref.current?.offsetTop / 2 + autoScrollOnMobile.scrollHeight,
+                    behavior: "smooth"
+                });
+            }
+        }
+    }, [autoScrollOnMobile.enabled, autoScrollOnMobile.scrollHeight]);
+
     return (
         <SelectProvider
             otherData={{
@@ -199,7 +222,7 @@ const Select: React.FC<SelectProps> = ({
             value={value}
             handleValueChange={handleValueChange}
         >
-            <div className="relative w-full" ref={ref}>
+            <div className="relative w-full" ref={ref} onClick={scrollOnMobile}>
                 <div
                     tabIndex={0}
                     aria-expanded={open}

@@ -10,6 +10,11 @@ export interface GroupOption {
     options: Option[];
 }
 
+export interface AutoScrollOption {
+    enabled: boolean;
+    scrollHeight: number;
+}
+
 export type Options = Array<Option | GroupOption>;
 
 export interface ClassNames {

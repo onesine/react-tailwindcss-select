@@ -137,13 +137,7 @@ class App extends React.Component {
     render() {
         const { animal } = this.state;
 
-        return (
-            <Select
-                value={animal}
-                onChange={this.handleChange}
-                options={options}
-            />
-        );
+        return <Select value={animal} onChange={this.handleChange} options={options} />;
     }
 }
 ```
@@ -168,13 +162,7 @@ const App = () => {
         setAnimal(value);
     };
 
-    return (
-        <Select
-            value={animal}
-            onChange={handleChange}
-            options={options}
-        />
-    );
+    return <Select value={animal} onChange={handleChange} options={options} />;
 };
 
 export default App;
@@ -209,12 +197,7 @@ const App = () => {
     };
 
     return (
-        <Select
-            primaryColor={"indigo"}
-            value={animal}
-            onChange={handleChange}
-            options={options}
-        />
+        <Select primaryColor={"indigo"} value={animal} onChange={handleChange} options={options} />
     );
 };
 
@@ -225,25 +208,26 @@ export default App;
 
 This table shows all the options available in react-tailwindcss-select.
 
-| Option                                        | Type       | Default            | Description                                                                            |
-|-----------------------------------------------|------------|--------------------|----------------------------------------------------------------------------------------|
-| [`classNames`](#classNames)                   | `Object`   | `undefined`        | This prop allows you to style most of the components used by this library.             |
-| `isClearable`                                 | `Boolean`  | `true`             | Indicates if you can empty the select field.                                           |
-| `isDisabled`                                  | `Boolean`  | `false`            | Indicates if you can disable the select field.                                         |
-| `isMultiple`                                  | `Boolean`  | `false`            | Indicates if you can do a multiple selection.                                          |
-| `isSearchable`                                | `Boolean`  | `true`             | Indicates if you can search the elements of the select field.                          |
-| [`formatGroupLabel`](#formatGroupLabel)       | `Function` | `null`             | Allows you to use a custom rendering template for each subgroup title                  |
-| [`formatOptionLabel`](#formatOptionLabel)     | `Function` | `null`             | Allows you to use a custom rendering template for each option in the list              |
-| `loading`                                     | `Boolean`  | `false`            | Indicates if you want a loader to appear in the field.                                 |
-| `menuIsOpen`                                  | `Boolean`  | `false`            | Indicates if you want the options menu to be displayed by default.                     |
-| `noOptionsMessage`                            | `String`   | `No results found` | Default message when there is no option in the select field.                           |
-| [`onChange`](#onChange)                       | `Function` |                    | This callback, if present, is triggered when the select field value is modified.       |
-| [`onSearchInputChange`](#onSearchInputChange) | `Function` |                    | This callback, if present, is triggered when the search input field value is modified. |
-| [`options`](#options)                         | `Array`    | `[]`               | All options or options groups available in the selection field.                        |
-| `placeholder`                                 | `String`   | `Select...`        | The placeholder shown for the select field.                                            |
-| `primaryColor`                                | `String`   | `blue`             | Default theme of the field.                                                            |
-| `searchInputPlaceholder`                      | `String`   | `Search...`        | The placeholder shown for the search input field.                                      |
-| [`value`](#value)                             | `Object`   | `null`             | Current value of select field.                                                         |
+| Option                                        | Type       | Default                            | Description                                                                            |
+| --------------------------------------------- | ---------- | ---------------------------------- | -------------------------------------------------------------------------------------- |
+| [`classNames`](#classNames)                   | `Object`   | `undefined`                        | This prop allows you to style most of the components used by this library.             |
+| `isClearable`                                 | `Boolean`  | `true`                             | Indicates if you can empty the select field.                                           |
+| `isDisabled`                                  | `Boolean`  | `false`                            | Indicates if you can disable the select field.                                         |
+| `isMultiple`                                  | `Boolean`  | `false`                            | Indicates if you can do a multiple selection.                                          |
+| `isSearchable`                                | `Boolean`  | `true`                             | Indicates if you can search the elements of the select field.                          |
+| [`formatGroupLabel`](#formatGroupLabel)       | `Function` | `null`                             | Allows you to use a custom rendering template for each subgroup title                  |
+| [`formatOptionLabel`](#formatOptionLabel)     | `Function` | `null`                             | Allows you to use a custom rendering template for each option in the list              |
+| `loading`                                     | `Boolean`  | `false`                            | Indicates if you want a loader to appear in the field.                                 |
+| `menuIsOpen`                                  | `Boolean`  | `false`                            | Indicates if you want the options menu to be displayed by default.                     |
+| `noOptionsMessage`                            | `String`   | `No results found`                 | Default message when there is no option in the select field.                           |
+| [`onChange`](#onChange)                       | `Function` |                                    | This callback, if present, is triggered when the select field value is modified.       |
+| [`onSearchInputChange`](#onSearchInputChange) | `Function` |                                    | This callback, if present, is triggered when the search input field value is modified. |
+| [`options`](#options)                         | `Array`    | `[]`                               | All options or options groups available in the selection field.                        |
+| `placeholder`                                 | `String`   | `Select...`                        | The placeholder shown for the select field.                                            |
+| `primaryColor`                                | `String`   | `blue`                             | Default theme of the field.                                                            |
+| `searchInputPlaceholder`                      | `String`   | `Search...`                        | The placeholder shown for the search input field.                                      |
+| [`value`](#value)                             | `Object`   | `null`                             | Current value of select field.                                                         |
+| [`autoScrollOnMobile`](#autoScrollOnMobile)   | `Object`   | `{enabled:false, scrollHeight:50}` | Allows you to use a custom options for auto scroll                                     |
 
 ### onChange
 
@@ -259,8 +243,8 @@ currentValue => {
 
 ### onSearchInputChange
 
-This callback, if present, is triggered when the search input field value is modified. This callback takes
-as parameter a `React.ChangeEvent<HTMLInputElement>`.
+This callback, if present, is triggered when the search input field value is modified. This callback
+takes as parameter a `React.ChangeEvent<HTMLInputElement>`.
 
 ```js
 e => {
@@ -416,9 +400,7 @@ const App = () => {
             formatOptionLabel={data => (
                 <li
                     className={`block transition duration-200 px-2 py-2 cursor-pointer select-none truncate rounded ${
-                        !data.isSelected
-                            ? `text-white bg-blue-500`
-                            : `bg-blue-100 text-blue-500`
+                        !data.isSelected ? `text-white bg-blue-500` : `bg-blue-100 text-blue-500`
                     }`}
                 >
                     // data represents each option in the list
@@ -442,11 +424,14 @@ As of version 1.6.0 of `react-tailwindcss-select` you can now use the `className
 
 > **Info**
 >
-> 👉 Note: this is not to be confused with the className prop, which will add a class to the component.
+> 👉 Note: this is not to be confused with the className prop, which will add a class to the
+> component.
 
-`classNames` takes an object with keys to represent the various inner components that `react-tailwindcss-select` is made up of.
+`classNames` takes an object with keys to represent the various inner components that
+`react-tailwindcss-select` is made up of.
 
-Each key takes a callback function or a string. If a key is not filled in, the default classes of the component will be used.
+Each key takes a callback function or a string. If a key is not filled in, the default classes of
+the component will be used.
 
 #### All keys
 
@@ -456,7 +441,7 @@ interface SelectProps {
     classNames?: {
         menuButton?: (value?: { isDisabled?: boolean }) => string;
         menu?: string;
-        tagItem?: (value?: { item?: Option, isDisabled?: boolean }) => string;
+        tagItem?: (value?: { item?: Option; isDisabled?: boolean }) => string;
         tagItemText?: string;
         tagItemIconContainer?: string;
         tagItemIcon?: string;
@@ -487,35 +472,75 @@ const options = [
 ];
 
 const App = () => {
-    const[animal, setAnimal] =useState(null);
+    const [animal, setAnimal] = useState(null);
 
     const handleChange = value => {
         console.log("value:", value);
         setAnimal(value);
     };
 
-    return(
+    return (
         <Select
             value={animal}
             onChange={handleChange}
             options={options}
             classNames={{
-                menuButton: ({ isDisabled }) => (
+                menuButton: ({ isDisabled }) =>
                     `flex text-sm text-gray-500 border border-gray-300 rounded shadow-sm transition-all duration-300 focus:outline-none ${
                         isDisabled
                             ? "bg-gray-200"
                             : "bg-white hover:border-gray-400 focus:border-blue-500 focus:ring focus:ring-blue-500/20"
-                    }`
-                ),
+                    }`,
                 menu: "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-gray-700",
-                listItem: ({ isSelected }) => (
+                listItem: ({ isSelected }) =>
                     `block transition duration-200 px-2 py-2 cursor-pointer select-none truncate rounded ${
                         isSelected
                             ? `text-white bg-blue-500`
                             : `text-gray-500 hover:bg-blue-100 hover:text-blue-500`
                     }`
-                )
             }}
+        />
+    );
+};
+
+export default App;
+```
+
+### autoScrollOnMobile
+
+Scroll automatically on mobile devices `< 640px` when user press `select components`
+
+> **Info**
+>
+> 👉 Trigger conditions :
+> `ref.current.offsetWidth < 640 && ref.current?.offsetTop / 2 >= window.scrollY`
+
+#### Example
+
+```javascript
+import { useState } from "react";
+import Select from "react-tailwindcss-select";
+
+const options = [
+    { value: "fox", label: "🦊 Fox" },
+    { value: "Butterfly", label: "🦋 Butterfly" },
+    { value: "Honeybee", label: "🐝 Honeybee" }
+];
+
+const App = () => {
+    const [animal, setAnimal] = useState(null);
+    const handleChange = value => {
+        console.log("value:", value);
+        setAnimal(value);
+    };
+
+    return (
+        <Select
+            value={animal}
+            onChange={handleChange}
+            options={options}
+            // 👉 default : {{ enabled: false, scrollHeight: 50}}
+            autoScrollOnMobile={{ enabled: true, scrollHeight: 100 }}
         />
     );
 };
@@ -542,7 +567,8 @@ Open a browser and navigate to `http://localhost:8888`
 
 Got ideas on how to make this better? Open an issue!
 
-Don't forget to see [CONTRIBUTING.md](https://github.com/onesine/react-tailwindcss-select/blob/master/CONTRIBUTING.md)
+Don't forget to see
+[CONTRIBUTING.md](https://github.com/onesine/react-tailwindcss-select/blob/master/CONTRIBUTING.md)
 
 ## Thanks
 

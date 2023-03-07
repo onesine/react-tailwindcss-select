@@ -1,13 +1,14 @@
 import Head from "next/head";
-import Select from "../src";
-import Header from "../components/Header";
-import Button from "../components/Button";
-import SelectContainer from "../components/SelectContainer";
 import { useCallback, useEffect, useState } from "react";
-import TailwindColors from "../components/TailwindColors";
-import Checkbox from "../components/Checkbox";
+
 import Alert from "../components/Alert";
+import Button from "../components/Button";
+import Checkbox from "../components/Checkbox";
+import Header from "../components/Header";
 import { DarkLink, LightLink } from "../components/Link";
+import SelectContainer from "../components/SelectContainer";
+import TailwindColors from "../components/TailwindColors";
+import Select from "../src";
 
 const MANGAS = [
     {
@@ -239,6 +240,7 @@ const Home = () => {
                                     isClearable={isClearable}
                                     isSearchable={isSearchable}
                                     isMultiple={isMultiple}
+                                    // autoScrollOnMobile={{ enabled: true, scrollHeight: 100 }}
                                     /*formatGroupLabel={(data) => (
                                         <div className={`py-2 text-xs flex items-center justify-between`}>
                                             <span className="font-bold">{data.label}</span>
