@@ -9,9 +9,7 @@ interface Props {
 const Spinner: React.FC<Props> = ({ primaryColor = DEFAULT_THEME }) => {
     const spinnerColor = useMemo(() => {
         if (COLORS.includes(primaryColor)) {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            return THEME_DATA.text[primaryColor];
+            return THEME_DATA.text[primaryColor as keyof typeof THEME_DATA.text];
         }
         return THEME_DATA.text[DEFAULT_THEME];
     }, [primaryColor]);

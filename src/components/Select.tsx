@@ -154,16 +154,12 @@ const Select: React.FC<SelectProps> = ({
     const getSelectClass = useCallback(() => {
         let ringColor = THEME_DATA.ring[DEFAULT_THEME];
         if (COLORS.includes(primaryColor)) {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            ringColor = THEME_DATA.ring[primaryColor];
+            ringColor = THEME_DATA.ring[primaryColor as keyof typeof THEME_DATA.ring];
         }
 
         let borderFocus = THEME_DATA.borderFocus[DEFAULT_THEME];
         if (COLORS.includes(primaryColor)) {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            borderFocus = THEME_DATA.borderFocus[primaryColor];
+            borderFocus = THEME_DATA.borderFocus[primaryColor as keyof typeof THEME_DATA.borderFocus];
         }
         const baseClass =
             "flex text-sm text-gray-500 border border-gray-300 rounded shadow-sm transition-all duration-300 focus:outline-none";

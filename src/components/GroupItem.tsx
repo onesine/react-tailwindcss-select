@@ -21,7 +21,7 @@ const GroupItem: React.FC<GroupItemProps> = ({ item, primaryColor }) => {
                     ) : (
                         <div
                             className={
-                                classNames && classNames.listGroupLabel
+                                classNames?.listGroupLabel
                                     ? classNames.listGroupLabel
                                     : "pr-2 py-2 cursor-default select-none truncate font-bold text-gray-700"
                             }

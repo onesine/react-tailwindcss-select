@@ -20,27 +20,21 @@ const Item: React.FC<ItemProps> = ({ item, primaryColor }) => {
 
     const textHoverColor = useMemo(() => {
         if (COLORS.includes(primaryColor)) {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            return THEME_DATA.textHover[primaryColor];
+            return THEME_DATA.textHover[primaryColor as keyof typeof THEME_DATA.textHover];
         }
         return THEME_DATA.textHover[DEFAULT_THEME];
     }, [primaryColor]);
 
     const bgColor = useMemo(() => {
         if (COLORS.includes(primaryColor)) {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            return THEME_DATA.bg[primaryColor];
+            return THEME_DATA.bg[primaryColor as keyof typeof THEME_DATA.bg];
         }
         return THEME_DATA.bg[DEFAULT_THEME];
     }, [primaryColor]);
 
     const bgHoverColor = useMemo(() => {
         if (COLORS.includes(primaryColor)) {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            return THEME_DATA.bgHover[primaryColor];
+            return THEME_DATA.bgHover[primaryColor as keyof typeof THEME_DATA.bgHover];
         }
         return THEME_DATA.bgHover[DEFAULT_THEME];
     }, [primaryColor]);
