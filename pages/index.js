@@ -240,6 +240,7 @@ const Home = () => {
                                     isClearable={isClearable}
                                     isSearchable={isSearchable}
                                     isMultiple={isMultiple}
+                                    // noHighLigthLabel={true}
                                     // autoScrollOnMobile={{ enabled: true, scrollHeight: 100 }}
                                     /*formatGroupLabel={(data) => (
                                         <div className={`py-2 text-xs flex items-center justify-between`}>

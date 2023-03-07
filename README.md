@@ -228,6 +228,7 @@ This table shows all the options available in react-tailwindcss-select.
 | `searchInputPlaceholder`                      | `String`   | `Search...`                        | The placeholder shown for the search input field.                                      |
 | [`value`](#value)                             | `Object`   | `null`                             | Current value of select field.                                                         |
 | [`autoScrollOnMobile`](#autoScrollOnMobile)   | `Object`   | `{enabled:false, scrollHeight:50}` | Allows you to use a custom options for auto scroll                                     |
+| [`noHighLigthLabel`]                          | `Boolean`  | `false`                            | Indicates if you can disable the label highlight                                       |
 
 ### onChange
 
@@ -353,7 +354,7 @@ const App = () => {
                 <div className={`py-2 text-xs flex items-center justify-between`}>
                     // 👉 data represents each subgroup
                     <span className="font-bold">{data.label}</span>
-                    <span className="bg-gray-200 h-5 h-5 p-1.5 flex items-center justify-center rounded-full">
+                    <span className="bg-gray-200 h-5 p-1.5 flex items-center justify-center rounded-full">
                         {data.options.length}
                     </span>
                 </div>

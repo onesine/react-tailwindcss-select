@@ -31,6 +31,7 @@ interface SelectProps {
     menuIsOpen?: boolean;
     searchInputPlaceholder?: string;
     noOptionsMessage?: string;
+    noHighLigthLabel?: boolean;
     primaryColor: string;
     autoScrollOnMobile?: AutoScrollOption;
     formatGroupLabel?: ((data: GroupOption) => JSX.Element) | null;
@@ -55,6 +56,7 @@ const Select: React.FC<SelectProps> = ({
         enabled: false,
         scrollHeight: 50
     },
+    noHighLigthLabel = false,
     noOptionsMessage = "No options found",
     primaryColor = DEFAULT_THEME,
     formatGroupLabel = null,
@@ -340,6 +342,7 @@ const Select: React.FC<SelectProps> = ({
                             isMultiple={isMultiple}
                             value={value}
                             primaryColor={primaryColor || DEFAULT_THEME}
+                            noHighLigthLabel={noHighLigthLabel}
                         />
                     </div>
                 )}
