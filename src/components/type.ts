@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface Option {
     value: string;
     label: string;
@@ -31,3 +33,23 @@ export interface ClassNames {
 }
 
 export type SelectValue = Option | Option[] | null;
+
+export interface SelectProps {
+    options: Options;
+    value: SelectValue;
+    onChange: (value: SelectValue) => void;
+    onSearchInputChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    placeholder?: string;
+    isMultiple?: boolean;
+    isClearable?: boolean;
+    isSearchable?: boolean;
+    isDisabled?: boolean;
+    loading?: boolean;
+    menuIsOpen?: boolean;
+    searchInputPlaceholder?: string;
+    noOptionsMessage?: string;
+    primaryColor: string;
+    formatGroupLabel?: ((data: GroupOption) => JSX.Element) | null;
+    formatOptionLabel?: ((data: Option) => JSX.Element) | null;
+    classNames?: ClassNames;
+}

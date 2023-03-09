@@ -8,27 +8,7 @@ import Options from "./Options";
 import SearchInput from "./SearchInput";
 import SelectProvider from "./SelectProvider";
 import Spinner from "./Spinner";
-import { ClassNames, GroupOption, Option, Options as ListOption, SelectValue } from "./type";
-
-interface SelectProps {
-    options: ListOption;
-    value: SelectValue;
-    onChange: (value: SelectValue) => void;
-    onSearchInputChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    placeholder?: string;
-    isMultiple?: boolean;
-    isClearable?: boolean;
-    isSearchable?: boolean;
-    isDisabled?: boolean;
-    loading?: boolean;
-    menuIsOpen?: boolean;
-    searchInputPlaceholder?: string;
-    noOptionsMessage?: string;
-    primaryColor: string;
-    formatGroupLabel?: ((data: GroupOption) => JSX.Element) | null;
-    formatOptionLabel?: ((data: Option) => JSX.Element) | null;
-    classNames?: ClassNames;
-}
+import { Option, Options as ListOption, SelectProps } from "./type";
 
 const Select: React.FC<SelectProps> = ({
     options = [],
