@@ -1,13 +1,13 @@
 import Head from "next/head";
 import Select from "../src";
-import Header from "../components/Header";
-import Button from "../components/Button";
-import SelectContainer from "../components/SelectContainer";
+import Header from "../page-components/Header";
+import Button from "../page-components/Button";
+import SelectContainer from "../page-components/SelectContainer";
 import { useCallback, useEffect, useState } from "react";
-import TailwindColors from "../components/TailwindColors";
-import Checkbox from "../components/Checkbox";
-import Alert from "../components/Alert";
-import { DarkLink, LightLink } from "../components/Link";
+import TailwindColors from "../page-components/TailwindColors";
+import Checkbox from "../page-components/Checkbox";
+import Alert from "../page-components/Alert";
+import { DarkLink, LightLink } from "../page-components/Link";
 
 const MANGAS = [
     {

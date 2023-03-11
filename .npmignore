@@ -6,7 +6,7 @@ node_modules
 assets
 .git
 pages
-components
+page-components
 styles
 .next
 .rollup.cache
