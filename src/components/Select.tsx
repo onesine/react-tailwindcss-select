@@ -178,7 +178,6 @@ const Select: React.FC<SelectProps> = ({
         >
             <div className="relative w-full" ref={ref}>
                 <div
-                    tabIndex={0}
                     aria-expanded={open}
                     onKeyDown={onPressEnterOrSpace}
                     onClick={toggle}
@@ -207,6 +206,8 @@ const Select: React.FC<SelectProps> = ({
                                             </p>
                                             {!isDisabled && (
                                                 <div
+                                                    role="button"
+                                                    tabIndex={0}
                                                     onClick={e => removeItem(e, item)}
                                                     className={
                                                         classNames?.tagItemIconContainer
@@ -264,7 +265,6 @@ const Select: React.FC<SelectProps> = ({
 
                 {open && !isDisabled && (
                     <div
-                        tabIndex={-1}
                         className={
                             classNames?.menu
                                 ? classNames.menu
