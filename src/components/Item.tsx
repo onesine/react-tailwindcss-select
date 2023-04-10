@@ -63,6 +63,12 @@ const Item: React.FC<ItemProps> = ({ item, primaryColor }) => {
                         <DisabledItem>{item.label}</DisabledItem>
                     ) : (
                         <li
+                            tabIndex={0}
+                            onKeyDown={(e: React.KeyboardEvent<HTMLLIElement>) => {
+                                if (e.key === ' ' || e.key === 'Enter') {
+                                    handleValueChange(item)
+                                }
+                            }}
                             aria-selected={isSelected}
                             role={"option"}
                             onClick={() => handleValueChange(item)}
