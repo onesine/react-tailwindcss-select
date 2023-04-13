@@ -487,7 +487,7 @@ const options = [
 ];
 
 const App = () => {
-    const[animal, setAnimal] =useState(null);
+    const [animal, setAnimal] = useState(null);
 
     const handleChange = value => {
         console.log("value:", value);
