@@ -48,8 +48,8 @@ const Item: React.FC<ItemProps> = ({ item, primaryColor }) => {
             : `text-gray-500 ${bgHoverColor} ${textHoverColor}`;
 
         const itemClass = twMerge(
-            classNames?.listItem?.({ isSelected }),
-            `${baseClass} ${selectedClass}`
+            `${baseClass} ${selectedClass}`,
+            classNames?.listItem?.({ isSelected })
         );
 
         return itemClass;

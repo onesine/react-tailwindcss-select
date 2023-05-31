@@ -17,18 +17,18 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(function Sear
 ) {
     const { classNames } = useContext(SelectContext);
     return (
-        <div className={twMerge(classNames?.searchContainer, "relative py-1 px-2.5")}>
+        <div className={twMerge("relative py-1 px-2.5", classNames?.searchContainer)}>
             <SearchIcon
                 className={twMerge(
-                    classNames?.searchIcon,
-                    "absolute w-5 h-5 mt-2.5 pb-0.5 ml-2 text-gray-500"
+                    "absolute w-5 h-5 mt-2.5 pb-0.5 ml-2 text-gray-500",
+                    classNames?.searchIcon
                 )}
             />
             <input
                 ref={ref}
                 className={twMerge(
-                    classNames?.searchBox,
-                    "w-full py-2 pl-8 text-sm text-gray-500 bg-gray-100 border border-gray-200 rounded focus:border-gray-200 focus:ring-0 focus:outline-none"
+                    "w-full py-2 pl-8 text-sm text-gray-500 bg-gray-100 border border-gray-200 rounded focus:border-gray-200 focus:ring-0 focus:outline-none",
+                    classNames?.searchBox
                 )}
                 type="text"
                 placeholder={placeholder}

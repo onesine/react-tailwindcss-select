@@ -200,8 +200,8 @@ const Select: React.FC<SelectProps> = ({
                                         <div className={getTagItemClass(item)} key={index}>
                                             <p
                                                 className={twMerge(
-                                                    classNames?.tagItemText,
-                                                    "text-gray-600 truncate cursor-default select-none"
+                                                    "text-gray-600 truncate cursor-default select-none",
+                                                    classNames?.tagItemText
                                                 )}
                                             >
                                                 {item.label}
@@ -212,14 +212,14 @@ const Select: React.FC<SelectProps> = ({
                                                     tabIndex={0}
                                                     onClick={e => removeItem(e, item)}
                                                     className={twMerge(
-                                                        classNames?.tagItemIconContainer,
-                                                        "flex items-center px-1 cursor-pointer rounded-r-sm hover:bg-red-200 hover:text-red-600"
+                                                        "flex items-center px-1 cursor-pointer rounded-r-sm hover:bg-red-200 hover:text-red-600",
+                                                        classNames?.tagItemIconContainer
                                                     )}
                                                 >
                                                     <CloseIcon
                                                         className={twMerge(
-                                                            classNames?.tagItemIcon,
-                                                            "w-3 h-3 mt-0.5"
+                                                            "w-3 h-3 mt-0.5",
+                                                            classNames?.tagItemIcon
                                                         )}
                                                     />
                                                 </div>
@@ -240,7 +240,7 @@ const Select: React.FC<SelectProps> = ({
                         {isClearable && !isDisabled && value !== null && (
                             <div className="px-1.5 cursor-pointer" onClick={clearValue}>
                                 <CloseIcon
-                                    className={twMerge(classNames?.closeIcon, "w-5 h-5 p-0.5")}
+                                    className={twMerge("w-5 h-5 p-0.5", classNames?.closeIcon)}
                                 />
                             </div>
                         )}
@@ -262,8 +262,8 @@ const Select: React.FC<SelectProps> = ({
                 {open && !isDisabled && (
                     <div
                         className={twMerge(
-                            classNames?.menu,
-                            "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-gray-700"
+                            "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-gray-700",
+                            classNames?.menu
                         )}
                     >
                         {isSearchable && (

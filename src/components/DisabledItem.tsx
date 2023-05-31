@@ -12,8 +12,8 @@ const DisabledItem: React.FC<DisabledItemProps> = ({ children }) => {
     return (
         <div
             className={twMerge(
-                classNames?.listDisabledItem,
-                "px-2 py-2 cursor-not-allowed truncate text-gray-400 select-none"
+                "px-2 py-2 cursor-not-allowed truncate text-gray-400 select-none",
+                classNames?.listDisabledItem
             )}
         >
             {children}

@@ -22,8 +22,8 @@ const GroupItem: React.FC<GroupItemProps> = ({ item, primaryColor }) => {
                     ) : (
                         <div
                             className={twMerge(
-                                classNames?.listGroupLabel,
-                                "pr-2 py-2 cursor-default select-none truncate font-bold text-gray-700"
+                                "pr-2 py-2 cursor-default select-none truncate font-bold text-gray-700",
+                                classNames?.listGroupLabel
                             )}
                         >
                             {item.label}
