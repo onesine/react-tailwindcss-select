@@ -1,4 +1,5 @@
 import React, { useCallback, useContext, useMemo } from "react";
+import { twMerge } from "tailwind-merge";
 
 import { DEFAULT_THEME } from "../constants";
 
@@ -92,10 +93,7 @@ const Options: React.FC<OptionsProps> = ({
     }, [filterByText, removeValues]);
 
     return (
-        <div
-            role="options"
-            className={classNames && classNames.list ? classNames.list : "max-h-72 overflow-y-auto"}
-        >
+        <div role="options" className={twMerge(classNames?.list, "max-h-72 overflow-y-auto")}>
             {filterResult.map((item, index) => (
                 <React.Fragment key={index}>
                     {"options" in item ? (

@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo } from "react";
+import { twMerge } from "tailwind-merge";
 
 import { COLORS, DEFAULT_THEME, THEME_DATA } from "../constants";
 
@@ -46,9 +47,12 @@ const Item: React.FC<ItemProps> = ({ item, primaryColor }) => {
             ? `text-white ${bgColor}`
             : `text-gray-500 ${bgHoverColor} ${textHoverColor}`;
 
-        return classNames && classNames.listItem
-            ? classNames.listItem({ isSelected })
-            : `${baseClass} ${selectedClass}`;
+        const itemClass = twMerge(
+            classNames?.listItem?.({ isSelected }),
+            `${baseClass} ${selectedClass}`
+        );
+
+        return itemClass;
     }, [bgColor, bgHoverColor, classNames, isSelected, textHoverColor]);
 
     return (
@@ -65,8 +69,8 @@ const Item: React.FC<ItemProps> = ({ item, primaryColor }) => {
                         <li
                             tabIndex={0}
                             onKeyDown={(e: React.KeyboardEvent<HTMLLIElement>) => {
-                                if (e.key === ' ' || e.key === 'Enter') {
-                                    handleValueChange(item)
+                                if (e.key === " " || e.key === "Enter") {
+                                    handleValueChange(item);
                                 }
                             }}
                             aria-selected={isSelected}
