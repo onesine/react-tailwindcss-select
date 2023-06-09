@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-import { COLORS, DEFAULT_THEME, THEME_DATA } from "../constants";
+import { COLORS, DEFAULT_CLASSNAMES, DEFAULT_THEME, THEME_DATA } from "../constants";
 import useOnClickOutside from "../hooks/use-onclick-outside";
 
 import { ChevronIcon, CloseIcon } from "./Icons";
@@ -142,26 +142,23 @@ const Select: React.FC<SelectProps> = ({
             borderFocus =
                 THEME_DATA.borderFocus[primaryColor as keyof typeof THEME_DATA.borderFocus];
         }
-        const baseClass =
-            "flex text-sm text-gray-500 border border-gray-300 rounded shadow-sm transition-all duration-300 focus:outline-none";
-        const defaultClass = `${baseClass} ${
+        const defaultClass = `${DEFAULT_CLASSNAMES.menuButton} ${
             isDisabled
                 ? "bg-gray-200"
                 : `bg-white hover:border-gray-400 ${borderFocus} focus:ring ${ringColor}`
         }`;
 
         return classNames && classNames.menuButton
-            ? classNames.menuButton({ isDisabled })
+            ? classNames.menuButton(DEFAULT_CLASSNAMES.menuButton, { isDisabled })
             : defaultClass;
     }, [classNames, isDisabled, primaryColor]);
 
     const getTagItemClass = useCallback(
         (item: Option) => {
-            const baseClasse = "bg-gray-200 border rounded-sm flex space-x-1";
             const disabledClass = isDisabled ? "border-gray-500 px-1" : "pl-1";
             return classNames?.tagItem
-                ? classNames.tagItem({ item, isDisabled })
-                : `${baseClasse} ${disabledClass}`;
+                ? classNames.tagItem(DEFAULT_CLASSNAMES.tagItem, { item, isDisabled })
+                : `${DEFAULT_CLASSNAMES.tagItem} ${disabledClass}`;
         },
         [classNames, isDisabled]
     );
@@ -198,8 +195,10 @@ const Select: React.FC<SelectProps> = ({
                                             <p
                                                 className={
                                                     classNames?.tagItemText
-                                                        ? classNames.tagItemText
-                                                        : "text-gray-600 truncate cursor-default select-none"
+                                                        ? classNames.tagItemText(
+                                                              DEFAULT_CLASSNAMES.tagItemText
+                                                          )
+                                                        : DEFAULT_CLASSNAMES.tagItemText
                                                 }
                                             >
                                                 {item.label}
@@ -211,15 +210,19 @@ const Select: React.FC<SelectProps> = ({
                                                     onClick={e => removeItem(e, item)}
                                                     className={
                                                         classNames?.tagItemIconContainer
-                                                            ? classNames.tagItemIconContainer
-                                                            : "flex items-center px-1 cursor-pointer rounded-r-sm hover:bg-red-200 hover:text-red-600"
+                                                            ? classNames.tagItemIconContainer(
+                                                                  DEFAULT_CLASSNAMES.tagItemIconContainer
+                                                              )
+                                                            : DEFAULT_CLASSNAMES.tagItemIconContainer
                                                     }
                                                 >
                                                     <CloseIcon
                                                         className={
                                                             classNames?.tagItemIcon
-                                                                ? classNames.tagItemIcon
-                                                                : "w-3 h-3 mt-0.5"
+                                                                ? classNames.tagItemIcon(
+                                                                      DEFAULT_CLASSNAMES.tagItemIcon
+                                                                  )
+                                                                : DEFAULT_CLASSNAMES.tagItemIcon
                                                         }
                                                     />
                                                 </div>
@@ -242,8 +245,8 @@ const Select: React.FC<SelectProps> = ({
                                 <CloseIcon
                                     className={
                                         classNames?.closeIcon
-                                            ? classNames.closeIcon
-                                            : "w-5 h-5 p-0.5"
+                                            ? classNames.closeIcon(DEFAULT_CLASSNAMES.closeIcon)
+                                            : DEFAULT_CLASSNAMES.closeIcon
                                     }
                                 />
                             </div>
@@ -267,8 +270,8 @@ const Select: React.FC<SelectProps> = ({
                     <div
                         className={
                             classNames?.menu
-                                ? classNames.menu
-                                : "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-gray-700"
+                                ? classNames.menu(DEFAULT_CLASSNAMES.menu)
+                                : DEFAULT_CLASSNAMES.menu
                         }
                     >
                         {isSearchable && (

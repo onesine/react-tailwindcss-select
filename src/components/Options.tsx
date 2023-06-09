@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useMemo } from "react";
 
-import { DEFAULT_THEME } from "../constants";
+import { DEFAULT_CLASSNAMES, DEFAULT_THEME } from "../constants";
 
 import DisabledItem from "./DisabledItem";
 import GroupItem from "./GroupItem";
@@ -94,7 +94,11 @@ const Options: React.FC<OptionsProps> = ({
     return (
         <div
             role="options"
-            className={classNames && classNames.list ? classNames.list : "max-h-72 overflow-y-auto"}
+            className={
+                classNames && classNames.list
+                    ? classNames.list(DEFAULT_CLASSNAMES.list)
+                    : DEFAULT_CLASSNAMES.list
+            }
         >
             {filterResult.map((item, index) => (
                 <React.Fragment key={index}>
