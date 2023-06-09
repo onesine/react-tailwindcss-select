@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo } from "react";
 
-import { COLORS, DEFAULT_THEME, THEME_DATA } from "../constants";
+import { COLORS, DEFAULT_CLASSNAMES, DEFAULT_THEME, THEME_DATA } from "../constants";
 
 import DisabledItem from "./DisabledItem";
 import { useSelectContext } from "./SelectProvider";
@@ -40,15 +40,13 @@ const Item: React.FC<ItemProps> = ({ item, primaryColor }) => {
     }, [primaryColor]);
 
     const getItemClass = useCallback(() => {
-        const baseClass =
-            "block transition duration-200 px-2 py-2 cursor-pointer select-none truncate rounded";
         const selectedClass = isSelected
             ? `text-white ${bgColor}`
             : `text-gray-500 ${bgHoverColor} ${textHoverColor}`;
 
         return classNames && classNames.listItem
-            ? classNames.listItem({ isSelected })
-            : `${baseClass} ${selectedClass}`;
+            ? classNames.listItem(DEFAULT_CLASSNAMES.listItem, { isSelected })
+            : `${DEFAULT_CLASSNAMES.listItem} ${selectedClass}`;
     }, [bgColor, bgHoverColor, classNames, isSelected, textHoverColor]);
 
     return (
@@ -65,8 +63,8 @@ const Item: React.FC<ItemProps> = ({ item, primaryColor }) => {
                         <li
                             tabIndex={0}
                             onKeyDown={(e: React.KeyboardEvent<HTMLLIElement>) => {
-                                if (e.key === ' ' || e.key === 'Enter') {
-                                    handleValueChange(item)
+                                if (e.key === " " || e.key === "Enter") {
+                                    handleValueChange(item);
                                 }
                             }}
                             aria-selected={isSelected}

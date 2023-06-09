@@ -15,21 +15,21 @@ export interface GroupOption {
 export type Options = Array<Option | GroupOption>;
 
 export interface ClassNames {
-    menuButton?: (value?: { isDisabled?: boolean }) => string;
-    menu?: string;
-    tagItem?: (value?: { item?: Option; isDisabled?: boolean }) => string;
-    tagItemText?: string;
-    tagItemIconContainer?: string;
-    tagItemIcon?: string;
-    list?: string;
-    listGroupLabel?: string;
-    listItem?: (value?: { isSelected?: boolean }) => string;
-    listDisabledItem?: string;
+    menuButton?: (defaultClassName: string, value?: { isDisabled?: boolean }) => string;
+    menu?: (defaultClassName: string) => string;
+    tagItem?: (defaultClassName: string, value?: { item?: Option; isDisabled?: boolean }) => string;
+    tagItemText?: (defaultClassName: string) => string;
+    tagItemIconContainer?: (defaultClassName: string) => string;
+    tagItemIcon?: (defaultClassName: string) => string;
+    list?: (defaultClassName: string) => string;
+    listGroupLabel?: (defaultClassName: string) => string;
+    listItem?: (defaultClassName: string, value?: { isSelected?: boolean }) => string;
+    listDisabledItem?: (defaultClassName: string) => string;
     ChevronIcon?: (value?: { open?: boolean }) => string;
-    searchContainer?: string;
-    searchBox?: string;
-    searchIcon?: string;
-    closeIcon?: string;
+    searchContainer?: (defaultClassName: string) => string;
+    searchBox?: (defaultClassName: string) => string;
+    searchIcon?: (defaultClassName: string) => string;
+    closeIcon?: (defaultClassName: string) => string;
 }
 
 export type SelectValue = Option | Option[] | null;

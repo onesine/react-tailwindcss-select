@@ -2,6 +2,7 @@ import React, { forwardRef, useContext } from "react";
 
 import { SearchIcon } from "./Icons";
 import { SelectContext } from "./SelectProvider";
+import { DEFAULT_CLASSNAMES } from "../constants";
 
 interface SearchInputProps {
     placeholder?: string;
@@ -19,23 +20,23 @@ const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(function Sear
         <div
             className={
                 classNames && classNames.searchContainer
-                    ? classNames.searchContainer
-                    : "relative py-1 px-2.5"
+                    ? classNames.searchContainer(DEFAULT_CLASSNAMES.searchContainer)
+                    : DEFAULT_CLASSNAMES.searchContainer
             }
         >
             <SearchIcon
                 className={
                     classNames && classNames.searchIcon
-                        ? classNames.searchIcon
-                        : "absolute w-5 h-5 mt-2.5 pb-0.5 ml-2 text-gray-500"
+                        ? classNames.searchIcon(DEFAULT_CLASSNAMES.searchIcon)
+                        : DEFAULT_CLASSNAMES.searchIcon
                 }
             />
             <input
                 ref={ref}
                 className={
                     classNames && classNames.searchBox
-                        ? classNames.searchBox
-                        : "w-full py-2 pl-8 text-sm text-gray-500 bg-gray-100 border border-gray-200 rounded focus:border-gray-200 focus:ring-0 focus:outline-none"
+                        ? classNames.searchBox(DEFAULT_CLASSNAMES.searchBox)
+                        : DEFAULT_CLASSNAMES.searchBox
                 }
                 type="text"
                 placeholder={placeholder}

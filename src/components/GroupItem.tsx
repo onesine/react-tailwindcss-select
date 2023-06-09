@@ -3,6 +3,7 @@ import React from "react";
 import Item from "./Item";
 import { useSelectContext } from "./SelectProvider";
 import { GroupOption } from "./type";
+import { DEFAULT_CLASSNAMES } from "../constants";
 
 interface GroupItemProps {
     item: GroupOption;
@@ -22,8 +23,8 @@ const GroupItem: React.FC<GroupItemProps> = ({ item, primaryColor }) => {
                         <div
                             className={
                                 classNames?.listGroupLabel
-                                    ? classNames.listGroupLabel
-                                    : "pr-2 py-2 cursor-default select-none truncate font-bold text-gray-700"
+                                    ? classNames.listGroupLabel(DEFAULT_CLASSNAMES.listGroupLabel)
+                                    : DEFAULT_CLASSNAMES.listGroupLabel
                             }
                         >
                             {item.label}

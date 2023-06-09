@@ -21,6 +21,26 @@ export const COLORS = [
 
 export const DEFAULT_THEME = "blue";
 
+export const DEFAULT_CLASSNAMES = {
+    searchContainer: "relative py-1 px-2.5",
+    searchIcon: "absolute w-5 h-5 mt-2.5 pb-0.5 ml-2 text-gray-500",
+    searchBox:
+        "w-full py-2 pl-8 text-sm text-gray-500 bg-gray-100 border border-gray-200 rounded focus:border-gray-200 focus:ring-0 focus:outline-none",
+    listDisabledItem: "px-2 py-2 cursor-not-allowed truncate text-gray-400 select-none",
+    listGroupLabel: "pr-2 py-2 cursor-default select-none truncate font-bold text-gray-700",
+    listItem: "block transition duration-200 px-2 py-2 cursor-pointer select-none truncate rounded",
+    list: "max-h-72 overflow-y-auto",
+    menuButton:
+        "flex text-sm text-gray-500 border border-gray-300 rounded shadow-sm transition-all duration-300 focus:outline-none",
+    tagItem: "bg-gray-200 border rounded-sm flex space-x-1",
+    tagItemText: "text-gray-600 truncate cursor-default select-none",
+    tagItemIconContainer:
+        "flex items-center px-1 cursor-pointer rounded-r-sm hover:bg-red-200 hover:text-red-600",
+    tagItemIcon: "w-3 h-3 mt-0.5",
+    closeIcon: "w-5 h-5 p-0.5",
+    menu: "absolute z-10 w-full bg-white shadow-lg border rounded py-1 mt-1.5 text-sm text-gray-700"
+};
+
 export const THEME_DATA = {
     bg: {
         blue: "bg-blue-500",
