@@ -27,7 +27,8 @@ const Select: React.FC<SelectProps> = ({
     primaryColor = DEFAULT_THEME,
     formatGroupLabel = null,
     formatOptionLabel = null,
-    classNames
+    classNames,
+    closeOnSelect = false
 }) => {
     const [open, setOpen] = useState<boolean>(menuIsOpen);
     const [list, setList] = useState<ListOption>(options);
@@ -95,7 +96,7 @@ const Select: React.FC<SelectProps> = ({
     const handleValueChange = useCallback(
         (selected: Option) => {
             function update() {
-                if (!isMultiple && !Array.isArray(value)) {
+                if ((!isMultiple && !Array.isArray(value)) || closeOnSelect) {
                     closeDropDown();
                     onChange(selected);
                 }
