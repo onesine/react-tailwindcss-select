@@ -59,7 +59,8 @@ const SELECT_OPTIONS = [
     "isMultiple",
     "isDisabled",
     "loading",
-    "isGroupOption"
+    "isGroupOption",
+    "closeOnSelect"
 ];
 
 const printAlertContent = (element, value) => {
@@ -79,6 +80,8 @@ const printAlertContent = (element, value) => {
             return printText("A loader appears on the field", value);
         case "isGroupOption":
             return printText("The options of the select field are grouped", value);
+        case "closeOnSelect":
+            return printText("Close dropdown every time an option is selected", value);
         default:
             return null;
     }
@@ -91,6 +94,7 @@ const Home = () => {
     const [value, setValue] = useState(null);
     const [isClearable, setIsClearable] = useState(false);
     const [isMultiple, setIsMultiple] = useState(false);
+    const [closeOnSelect, setCloseOnSelect] = useState(false);
     const [isSearchable, setIsSearchable] = useState(false);
     const [isDisabled, setIsDisabled] = useState(false);
     const [isGroupOption, setIsGroupOption] = useState(false);
@@ -139,6 +143,10 @@ const Home = () => {
                     }
                     if (action === "get") return isMultiple;
                     break;
+                case "closeOnSelect":
+                    if (action === "set") setCloseOnSelect(valueData);
+                    if (action === "get") return closeOnSelect;
+                    break;
                 case "isDisabled":
                     if (action === "set") setIsDisabled(valueData);
                     if (action === "get") return isDisabled;
@@ -158,7 +166,16 @@ const Home = () => {
                     break;
             }
         },
-        [isClearable, isDisabled, isGroupOption, isMultiple, isSearchable, loading, value]
+        [
+            isClearable,
+            isDisabled,
+            isGroupOption,
+            isMultiple,
+            closeOnSelect,
+            isSearchable,
+            loading,
+            value
+        ]
     );
 
     const handleCheck = useCallback(
@@ -239,6 +256,7 @@ const Home = () => {
                                     isClearable={isClearable}
                                     isSearchable={isSearchable}
                                     isMultiple={isMultiple}
+                                    closeOnSelect={closeOnSelect}
                                     /*formatGroupLabel={(data) => (
                                         <div className={`py-2 text-xs flex items-center justify-between`}>
                                             <span className="font-bold">{data.label}</span>
@@ -282,6 +300,7 @@ const Home = () => {
                                             {printAlertContent("isDisabled", isDisabled)}
                                             {printAlertContent("loading", loading)}
                                             {printAlertContent("isGroupOption", isGroupOption)}
+                                            {printAlertContent("closeOnSelect", closeOnSelect)}
                                         </Alert>
                                     </div>
                                 )}

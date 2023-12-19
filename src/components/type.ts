@@ -52,4 +52,5 @@ export interface SelectProps {
     formatGroupLabel?: ((data: GroupOption) => JSX.Element) | null;
     formatOptionLabel?: ((data: Option) => JSX.Element) | null;
     classNames?: ClassNames;
+    closeOnSelect?: boolean;
 }
